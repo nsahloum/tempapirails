@@ -1,2 +1,0 @@
-class SecretMenuItem < ApplicationRecord
-end
