@@ -205,3 +205,173 @@ Processing by LocationsController#index as */*
 Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.4ms | Allocations: 773)
 
 
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddCreationdateToLocations (20210708011730)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "locations" ADD "creationdate" datetime[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210708011730"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/locations/" for ::1 at 2021-07-08 03:18:26 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LocationsController#index as */*
+  Parameters: {"latitude"=>"8.0", "longitude"=>"12", "slug"=>"roma"}
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:4:in `index'
+Completed 200 OK in 18ms (Views: 11.4ms | ActiveRecord: 0.6ms | Allocations: 3553)
+
+
+Started POST "/locations/" for ::1 at 2021-07-08 03:18:44 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"latitude"=>"8.0", "longitude"=>"12", "slug"=>"me"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+  [1m[36mLocation Create (3.3ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "slug") VALUES (?, ?, ?)[0m  [["latitude", 8.0], ["longitude", 12.0], ["slug", "me"]]
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 5.8ms | Allocations: 1755)
+
+
+Started POST "/locations/" for ::1 at 2021-07-08 03:29:20 +0200
+  
+SyntaxError (/Users/najimasahloumi/Desktop/AppTweak/apirails/app/controllers/locations_controller.rb:17: syntax error, unexpected local variable or method, expecting ')'
+			creationdate: Date.today
+			^~~~~~~~~~~~
+/Users/najimasahloumi/Desktop/AppTweak/apirails/app/controllers/locations_controller.rb:18: syntax error, unexpected ')', expecting `end'
+        )
+        ^
+):
+  
+app/controllers/locations_controller.rb:17: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/locations_controller.rb:18: syntax error, unexpected ')', expecting `end'
+app/controllers/locations_controller.rb:17: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/locations_controller.rb:18: syntax error, unexpected ')', expecting `end'
+Started POST "/locations/" for ::1 at 2021-07-08 03:29:56 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"latitude"=>"13", "longitude"=>"12", "slug"=>"met"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.5ms | Allocations: 3146)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'creationdate' for Location.):
+  
+app/controllers/locations_controller.rb:13:in `create'
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/locations/" for ::1 at 2021-07-08 03:32:49 +0200
+Processing by LocationsController#create as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+  [1m[36mLocation Create (0.5ms)[0m  [1m[32mINSERT INTO "locations" ("creationdate") VALUES (?)[0m  [["creationdate", "2021-07-08 00:00:00"]]
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+Completed 200 OK in 26ms (Views: 1.9ms | ActiveRecord: 3.1ms | Allocations: 5763)
+
+
+Started POST "/locations/" for ::1 at 2021-07-08 03:33:10 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"latitude"=>"13", "longitude"=>"12", "slug"=>"met", "creationdate"=>""}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+  [1m[36mLocation Create (10.5ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "slug", "creationdate") VALUES (?, ?, ?, ?)[0m  [["latitude", 13.0], ["longitude", 12.0], ["slug", "met"], ["creationdate", "2021-07-08 00:00:00"]]
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+Completed 200 OK in 20ms (Views: 0.4ms | ActiveRecord: 12.2ms | Allocations: 1648)
+
+
+Started POST "/locations/" for ::1 at 2021-07-08 03:33:19 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"latitude"=>"13", "longitude"=>"12", "slug"=>"met", "creationdate"=>"12/03"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+  [1m[36mLocation Create (0.9ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "slug", "creationdate") VALUES (?, ?, ?, ?)[0m  [["latitude", 13.0], ["longitude", 12.0], ["slug", "met"], ["creationdate", "2021-07-08 00:00:00"]]
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (9.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+Completed 200 OK in 19ms (Views: 0.4ms | ActiveRecord: 10.6ms | Allocations: 2372)
+
+
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeDataTypeForDate (20210708013741)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TEMPORARY TABLE "alocations" ("id" integer NOT NULL PRIMARY KEY, "latitude" float DEFAULT NULL, "longitude" float DEFAULT NULL, "slug" varchar DEFAULT NULL, "creationdate" datetime DEFAULT NULL)[0m
+  [1m[35m (3.2ms)[0m  [1m[32mINSERT INTO "alocations" ("id","latitude","longitude","slug","creationdate")
+                     SELECT "id","latitude","longitude","slug","creationdate" FROM "locations"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mDROP TABLE "locations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "locations" ("id" integer NOT NULL PRIMARY KEY, "latitude" float DEFAULT NULL, "longitude" float DEFAULT NULL, "slug" varchar DEFAULT NULL, "creationdate" date DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "locations" ("id","latitude","longitude","slug","creationdate")
+                     SELECT "id","latitude","longitude","slug","creationdate" FROM "alocations"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "alocations"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210708013741"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/locations" for 127.94.0.1 at 2021-07-08 03:41:23 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:4:in `index'
+Completed 200 OK in 16ms (Views: 11.6ms | ActiveRecord: 0.5ms | Allocations: 4169)
+
+
+Started POST "/locations?latitude=34&longitude=34&slug=mehj" for 127.94.0.1 at 2021-07-08 03:42:00 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"latitude"=>"34", "longitude"=>"34", "slug"=>"mehj"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+  [1m[36mLocation Create (8.8ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "slug", "creationdate") VALUES (?, ?, ?, ?)[0m  [["latitude", 34.0], ["longitude", 34.0], ["slug", "mehj"], ["creationdate", "2021-07-08 00:00:00"]]
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (6.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+Completed 200 OK in 27ms (Views: 1.3ms | ActiveRecord: 15.4ms | Allocations: 1825)
+
+
+Started GET "/" for 127.94.0.1 at 2021-07-08 03:45:45 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/najimasahloumi/.rvm/gems/ruby-3.0.2/gems/railties-6.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/najimasahloumi/.rvm/gems/ruby-3.0.2/gems/railties-6.1.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 10.4ms | Allocations: 418)
+Completed 200 OK in 25ms (Views: 15.4ms | Allocations: 3208)
+
+
+Started POST "/locations?latitude=9&longitude=78&slug=YU" for 127.94.0.1 at 2021-07-08 03:46:25 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"latitude"=>"9", "longitude"=>"78", "slug"=>"YU"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+  [1m[36mLocation Create (0.7ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "slug", "creationdate") VALUES (?, ?, ?, ?)[0m  [["latitude", 9.0], ["longitude", 78.0], ["slug", "YU"], ["creationdate", "2021-07-08"]]
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+Completed 200 OK in 30ms (Views: 0.6ms | ActiveRecord: 4.7ms | Allocations: 5634)
+
+

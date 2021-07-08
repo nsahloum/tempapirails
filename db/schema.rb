@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_08_001845) do
+ActiveRecord::Schema.define(version: 2021_07_08_013741) do
 
   create_table "locations", force: :cascade do |t|
     t.float "latitude"
     t.float "longitude"
     t.string "slug"
+    t.date "creationdate"
   end
 
 end

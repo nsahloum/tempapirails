@@ -13,7 +13,8 @@ class LocationsController < ApplicationController
         @location = Location.create(
             latitude: params[:latitude],
             longitude: params[:longitude],
-            slug: params[:slug]
+            slug: params[:slug],
+			creationdate: Date.today.strftime("%Y-%m-%d")
         )
         render json: @location
     end 
