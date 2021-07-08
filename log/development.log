@@ -25,3 +25,15 @@ Migrating to CreateLocations (20210708001845)
   [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Create (1.3ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "slug") VALUES (?, ?, ?)[0m  [["latitude", 50.8503], ["longitude", 4.3517], ["slug", "brussels"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Create (0.5ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "slug") VALUES (?, ?, ?)[0m  [["latitude", 48.8566], ["longitude", 2.3522], ["slug", "paris"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Create (0.4ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "slug") VALUES (?, ?, ?)[0m  [["latitude", 51.5074], ["longitude", 0.1278], ["slug", "london"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
