@@ -37,3 +37,171 @@ Migrating to CreateLocations (20210708001845)
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
   [1m[36mLocation Create (0.4ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "slug") VALUES (?, ?, ?)[0m  [["latitude", 51.5074], ["longitude", 0.1278], ["slug", "london"]]
   [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+Started GET "/location" for ::1 at 2021-07-08 03:03:59 +0200
+  [1m[35m (4.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/location"):
+  
+Started GET "/locations" for ::1 at 2021-07-08 03:04:04 +0200
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (0.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:4:in `index'
+Completed 200 OK in 34ms (Views: 12.5ms | ActiveRecord: 1.6ms | Allocations: 6512)
+
+
+Started GET "/locations/1" for ::1 at 2021-07-08 03:04:33 +0200
+Processing by LocationsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mLocation Load (16.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:8:in `show'
+Completed 200 OK in 64ms (Views: 16.2ms | ActiveRecord: 16.1ms | Allocations: 2514)
+
+
+Started POST "/locations/" for ::1 at 2021-07-08 03:04:46 +0200
+Processing by LocationsController#create as */*
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+  [1m[36mLocation Create (2.1ms)[0m  [1m[32mINSERT INTO "locations" DEFAULT VALUES[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+Completed 200 OK in 54ms (Views: 0.4ms | ActiveRecord: 3.9ms | Allocations: 2041)
+
+
+Started POST "/locations/" for ::1 at 2021-07-08 03:06:18 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"latitute"=>"", "text/plain"=>["", "", ""], "latititude"=>""}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+  [1m[36mLocation Create (4.5ms)[0m  [1m[32mINSERT INTO "locations" DEFAULT VALUES[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 9.4ms | Allocations: 1707)
+
+
+Started GET "/locations/" for ::1 at 2021-07-08 03:06:34 +0200
+Processing by LocationsController#index as */*
+  Parameters: {"latitute"=>"", "text/plain"=>["", "", ""], "latititude"=>""}
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.2ms | Allocations: 843)
+
+
+Started POST "/locations/" for ::1 at 2021-07-08 03:09:35 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"latitude"=>"6.0", "longitude"=>"8.99", "slug"=>"roma", "dz"=>"", "dzdzdzdz"=>""}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+  [1m[36mLocation Create (1.6ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "slug") VALUES (?, ?, ?)[0m  [["latitude", 6.0], ["longitude", 8.99], ["slug", "roma"]]
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 4.2ms | Allocations: 1628)
+
+
+Started GET "/locations/" for ::1 at 2021-07-08 03:10:04 +0200
+Processing by LocationsController#index as */*
+  Parameters: {"latitude"=>"6.0", "longitude"=>"8.99", "slug"=>"roma"}
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.4ms | Allocations: 850)
+
+
+Started DELETE "/locations/4" for ::1 at 2021-07-08 03:10:15 +0200
+Processing by LocationsController#destroy as */*
+  Parameters: {"latitude"=>"6.0", "longitude"=>"8.99", "slug"=>"roma", "id"=>"4"}
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:33:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:34:in `destroy'
+  [1m[36mLocation Destroy (0.7ms)[0m  [1m[31mDELETE FROM "locations" WHERE "locations"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/locations_controller.rb:34:in `destroy'
+  [1m[36mTRANSACTION (11.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:34:in `destroy'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:35:in `destroy'
+Completed 200 OK in 33ms (Views: 5.5ms | ActiveRecord: 13.4ms | Allocations: 2583)
+
+
+Started DELETE "/locations/5" for ::1 at 2021-07-08 03:10:23 +0200
+Processing by LocationsController#destroy as */*
+  Parameters: {"latitude"=>"6.0", "longitude"=>"8.99", "slug"=>"roma", "id"=>"5"}
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:33:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:34:in `destroy'
+  [1m[36mLocation Destroy (0.8ms)[0m  [1m[31mDELETE FROM "locations" WHERE "locations"."id" = ?[0m  [["id", 5]]
+  ↳ app/controllers/locations_controller.rb:34:in `destroy'
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:34:in `destroy'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:35:in `destroy'
+Completed 200 OK in 19ms (Views: 2.0ms | ActiveRecord: 9.8ms | Allocations: 2443)
+
+
+Started DELETE "/locations/6" for ::1 at 2021-07-08 03:10:31 +0200
+Processing by LocationsController#destroy as */*
+  Parameters: {"latitude"=>"6.0", "longitude"=>"8.99", "slug"=>"roma", "id"=>"6"}
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:33:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:34:in `destroy'
+  [1m[36mLocation Destroy (0.6ms)[0m  [1m[31mDELETE FROM "locations" WHERE "locations"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/locations_controller.rb:34:in `destroy'
+  [1m[36mTRANSACTION (11.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:34:in `destroy'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:35:in `destroy'
+Completed 200 OK in 22ms (Views: 3.1ms | ActiveRecord: 12.3ms | Allocations: 2400)
+
+
+Started POST "/locations/6" for ::1 at 2021-07-08 03:10:40 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/locations/6"):
+  
+Started POST "/locations/" for ::1 at 2021-07-08 03:10:47 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"latitude"=>"6.0", "longitude"=>"8.99", "slug"=>"roma"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+  [1m[36mLocation Create (0.6ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "slug") VALUES (?, ?, ?)[0m  [["latitude", 6.0], ["longitude", 8.99], ["slug", "roma"]]
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (9.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:13:in `create'
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 10.4ms | Allocations: 1576)
+
+
+Started GET "/locations/" for ::1 at 2021-07-08 03:10:59 +0200
+Processing by LocationsController#index as */*
+  Parameters: {"latitude"=>"6.0", "longitude"=>"8.99", "slug"=>"roma"}
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.3ms | Allocations: 773)
+
+
+Started PATCH "/locations/7" for ::1 at 2021-07-08 03:11:27 +0200
+Processing by LocationsController#update as */*
+  Parameters: {"latitude"=>"8.0", "longitude"=>"12", "slug"=>"roma", "id"=>"7"}
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:22:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:23:in `update'
+  [1m[36mLocation Update (2.6ms)[0m  [1m[33mUPDATE "locations" SET "latitude" = ?, "longitude" = ? WHERE "locations"."id" = ?[0m  [["latitude", 8.0], ["longitude", 12.0], ["id", 7]]
+  ↳ app/controllers/locations_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:23:in `update'
+Completed 200 OK in 13ms (Views: 1.4ms | ActiveRecord: 3.9ms | Allocations: 2161)
+
+
+Started GET "/locations/" for ::1 at 2021-07-08 03:11:35 +0200
+Processing by LocationsController#index as */*
+  Parameters: {"latitude"=>"8.0", "longitude"=>"12", "slug"=>"roma"}
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:4:in `index'
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.4ms | Allocations: 773)
+
+
