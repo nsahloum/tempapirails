@@ -229,3 +229,88 @@ Processing by LocationsController#show as */*
 Completed 200 OK in 35ms (Views: 0.9ms | ActiveRecord: 1.5ms | Allocations: 9680)
 
 
+Started GET "/locations/brussels" for ::1 at 2021-07-11 15:56:03 +0200
+  
+LoadError (cannot load such file -- rest-client):
+  
+app/controllers/locations_controller.rb:3:in `<class:LocationsController>'
+app/controllers/locations_controller.rb:1:in `<main>'
+Started GET "/locations/brussels" for ::1 at 2021-07-11 15:58:28 +0200
+  
+LoadError (cannot load such file -- rest-client):
+  
+app/controllers/locations_controller.rb:3:in `<class:LocationsController>'
+app/controllers/locations_controller.rb:1:in `<main>'
+Started GET "/locations/brussels" for ::1 at 2021-07-11 15:59:08 +0200
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LocationsController#show as */*
+  Parameters: {"id"=>"brussels"}
+  [1m[36mLocation Load (1.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:17:in `show'
+Completed 200 OK in 37ms (Views: 1.0ms | ActiveRecord: 2.1ms | Allocations: 9670)
+
+
+Started GET "/locations/brussels" for ::1 at 2021-07-11 16:02:48 +0200
+Processing by LocationsController#show as */*
+  Parameters: {"id"=>"brussels"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:17:in `show'
+  [1m[36mLocation Load (1.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:17:in `show'
+Completed 500 Internal Server Error in 11778ms (Views: 1.7ms | ActiveRecord: 2.8ms | Allocations: 9375)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/locations_controller.rb:8:in `get_temp'
+app/controllers/locations_controller.rb:19:in `show'
+Started GET "/locations/brussels" for ::1 at 2021-07-11 16:04:02 +0200
+Processing by LocationsController#show as */*
+  Parameters: {"id"=>"brussels"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:18:in `show'
+  [1m[36mLocation Load (0.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:18:in `show'
+Completed 500 Internal Server Error in 8660ms (Views: 0.2ms | ActiveRecord: 2.3ms | Allocations: 6940)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/locations_controller.rb:19:in `show'
+Started GET "/locations/brussels" for ::1 at 2021-07-11 16:04:50 +0200
+Processing by LocationsController#show as */*
+  Parameters: {"id"=>"brussels"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:18:in `show'
+  [1m[36mLocation Load (1.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:18:in `show'
+Completed 500 Internal Server Error in 13637ms (Views: 3.2ms | ActiveRecord: 5.8ms | Allocations: 11224)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/locations_controller.rb:19:in `show'
+Started GET "/locations/brussels" for ::1 at 2021-07-11 16:05:05 +0200
+Processing by LocationsController#show as */*
+  Parameters: {"id"=>"brussels"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:18:in `show'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:18:in `show'
+Completed 200 OK in 20114ms (Views: 0.2ms | ActiveRecord: 1.5ms | Allocations: 8168)
+
+
+Started GET "/locations/brussels" for ::1 at 2021-07-11 16:05:39 +0200
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LocationsController#show as */*
+  Parameters: {"id"=>"brussels"}
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:18:in `show'
+Completed 200 OK in 20334ms (Views: 1.2ms | ActiveRecord: 2.4ms | Allocations: 11471)
+
+

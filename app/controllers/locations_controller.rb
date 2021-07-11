@@ -1,4 +1,13 @@
 class LocationsController < ApplicationController
+	
+	require 'rest-client'
+
+	def get_temp
+		url = "https://www.7timer.info/bin/astro.php?lon=113.2&lat=23.1&ac=0&unit=metric&output=json&tz shift=0"
+		response = RestClient.get(url)
+		render json: response
+	end
+	
 	def index
         @locations = Location.all 
         render json: @locations

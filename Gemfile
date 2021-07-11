@@ -41,3 +41,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #Friendly ID, to get slug in the url
 gem 'friendly_id', '~> 5.4.0'
+
+#To call an other API
+gem "rest-client"
