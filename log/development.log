@@ -182,3 +182,50 @@ Processing by LocationsController#update as */*
 Completed 200 OK in 13ms (Views: 1.1ms | ActiveRecord: 5.1ms | Allocations: 2149)
 
 
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddSlugToLocations (20210711131909)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "locations" ADD "slug" varchar[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_locations_on_slug" ON "locations" ("slug")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210711131909"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFriendlyIdSlugs (20210711131918)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "friendly_id_slugs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "slug" varchar NOT NULL, "sluggable_id" integer NOT NULL, "sluggable_type" varchar(50), "scope" varchar, "created_at" datetime)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE INDEX "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id" ON "friendly_id_slugs" ("sluggable_type", "sluggable_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_friendly_id_slugs_on_slug_and_sluggable_type" ON "friendly_id_slugs" ("slug", "sluggable_type")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope" ON "friendly_id_slugs" ("slug", "sluggable_type", "scope")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210711131918"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mLocation Load (0.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" ORDER BY "locations"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" != 1 AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  [1m[36mLocation Update (0.6ms)[0m  [1m[33mUPDATE "locations" SET "updated_at" = ?, "slug" = ? WHERE "locations"."id" = ?[0m  [["updated_at", "2021-07-11 13:26:41.760374"], ["slug", "brussels"], ["id", 1]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" != 2 AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "paris"], ["LIMIT", 1]]
+  [1m[36mLocation Update (0.5ms)[0m  [1m[33mUPDATE "locations" SET "updated_at" = ?, "slug" = ? WHERE "locations"."id" = ?[0m  [["updated_at", "2021-07-11 13:26:41.766021"], ["slug", "paris"], ["id", 2]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" != 3 AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "london"], ["LIMIT", 1]]
+  [1m[36mLocation Update (0.4ms)[0m  [1m[33mUPDATE "locations" SET "updated_at" = ?, "slug" = ? WHERE "locations"."id" = ?[0m  [["updated_at", "2021-07-11 13:26:41.770781"], ["slug", "london"], ["id", 3]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" != 5 AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "bra"], ["LIMIT", 1]]
+  [1m[36mLocation Update (0.5ms)[0m  [1m[33mUPDATE "locations" SET "updated_at" = ?, "slug" = ? WHERE "locations"."id" = ?[0m  [["updated_at", "2021-07-11 13:26:41.776952"], ["slug", "bra"], ["id", 5]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/locations/brussels" for ::1 at 2021-07-11 15:28:47 +0200
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LocationsController#show as */*
+  Parameters: {"id"=>"brussels"}
+  [1m[36mLocation Load (0.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:8:in `show'
+Completed 200 OK in 35ms (Views: 0.9ms | ActiveRecord: 1.5ms | Allocations: 9680)
+
+
