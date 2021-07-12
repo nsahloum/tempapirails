@@ -314,3 +314,36 @@ Processing by LocationsController#show as */*
 Completed 200 OK in 20334ms (Views: 1.2ms | ActiveRecord: 2.4ms | Allocations: 11471)
 
 
+Started GET "/brussels" for 127.0.0.1 at 2021-07-12 16:27:48 +0200
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/brussels"):
+  
+Started GET "/locations" for 127.0.0.1 at 2021-07-12 16:29:35 +0200
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (1.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:14:in `index'
+Completed 200 OK in 53ms (Views: 20.3ms | ActiveRecord: 1.7ms | Allocations: 9328)
+
+
+Started GET "/locations/brussles" for 127.0.0.1 at 2021-07-12 16:29:39 +0200
+Processing by LocationsController#show as */*
+  Parameters: {"id"=>"brussles"}
+  [1m[36mLocation Load (1.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussles"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:18:in `show'
+Completed 404 Not Found in 12ms (ActiveRecord: 1.9ms | Allocations: 1614)
+
+
+  
+ActiveRecord::RecordNotFound (can't find record with friendly id: "brussles"):
+  
+app/controllers/locations_controller.rb:18:in `show'
+Started GET "/locations/brussels" for 127.0.0.1 at 2021-07-12 16:29:42 +0200
+Processing by LocationsController#show as */*
+  Parameters: {"id"=>"brussels"}
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:18:in `show'
+Completed 200 OK in 9ms (Views: 1.0ms | ActiveRecord: 0.4ms | Allocations: 916)
+
+
