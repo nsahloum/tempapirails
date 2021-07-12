@@ -4,7 +4,7 @@ class LocationsController < ApplicationController
 	require 'json'
 
 	def get_temp
-		url = "https://www.7timer.info/bin/astro.php?lon=113.2&lat=23.1&ac=0&unit=metric&output=json&tz shift=0"
+		url = "https://www.7timer.info/bin/api.pl?lon=#{longitude}&lat=#{latitude}&product=astro&output=json"
 		response = RestClient.get(url)
 		response_hash = JSON.parse(response)
 	end

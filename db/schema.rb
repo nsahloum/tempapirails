@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_11_131918) do
+ActiveRecord::Schema.define(version: 2021_07_12_191528) do
+
+  create_table "forecasted_temperatures", force: :cascade do |t|
+    t.date "date_forecasted"
+    t.integer "min_forecasted"
+    t.integer "max_forecasted"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "location_id"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false

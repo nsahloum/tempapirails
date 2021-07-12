@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-location1 = Location.create(latitude: 50.8503, longitude: 4.3517, slug_name: "brussels")
-location2 = Location.create(latitude: 48.8566, longitude: 2.3522, slug_name: "paris")
-location3 = Location.create(latitude: 51.5074, longitude: 0.1278, slug_name: "london")
+location1 = Location.create(latitude: 50.850, longitude: 4.351, slug_name: "brussels")
+
+forecasted_temperatures1 = ForecastedTemperature.create(date_forecasted: Date.today, min_forecasted: 23, max_forecasted: 43, location_id: 1)
+#forecasted_temperatures2 = ForecastedTemperature.create(date_forecasted: Date.today, min_forecasted: 23, max_forecasted: 43, location_id: 2)
