@@ -16,7 +16,7 @@ class LocationsController < ApplicationController
 
     def show
         @location = Location.friendly.find(params[:id])
-        render json: @location
+        render json: @location.forecasted_temperatures[0].min_forecasted
     end 
 
     def create
