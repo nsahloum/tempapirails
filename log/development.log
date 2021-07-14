@@ -1976,3 +1976,263 @@ Processing by LocationsController#index as */*
 Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.3ms | Allocations: 884)
 
 
+Started POST "/locations?slug_name=paris" for 127.0.0.1 at 2021-07-14 22:33:51 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"slug_name"=>"paris"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" IS NOT NULL AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "paris"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "paris"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+Completed 200 OK in 63ms (Views: 1.6ms | ActiveRecord: 3.2ms | Allocations: 27386)
+
+
+Started POST "/locations" for 127.0.0.1 at 2021-07-14 22:34:11 +0200
+Processing by LocationsController#create as */*
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Create (11.1ms)[0m  [1m[32mINSERT INTO "locations" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2021-07-14 20:34:11.302651"], ["updated_at", "2021-07-14 20:34:11.302651"]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+Completed 200 OK in 28ms (Views: 0.4ms | ActiveRecord: 13.6ms | Allocations: 2865)
+
+
+Started GET "/locations" for 127.0.0.1 at 2021-07-14 22:34:23 +0200
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:18:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.4ms | Allocations: 1010)
+
+
+Started GET "/locations/3" for 127.0.0.1 at 2021-07-14 22:34:38 +0200
+Processing by LocationsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "3"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:22:in `show'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:22:in `show'
+Completed 200 OK in 7ms (Views: 0.8ms | ActiveRecord: 0.7ms | Allocations: 1432)
+
+
+Started DELETE "/locations/3" for 127.0.0.1 at 2021-07-14 22:34:43 +0200
+Processing by LocationsController#destroy as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "3"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:47:in `destroy'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:47:in `destroy'
+  [1m[36mForecastedTemperature Load (0.8ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ?[0m  [["location_id", 3]]
+  ↳ app/controllers/locations_controller.rb:49:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:52:in `destroy'
+  [1m[36mLocation Destroy (0.9ms)[0m  [1m[31mDELETE FROM "locations" WHERE "locations"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/locations_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:52:in `destroy'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:53:in `destroy'
+Completed 200 OK in 52ms (Views: 2.7ms | ActiveRecord: 4.8ms | Allocations: 6781)
+
+
+Started POST "/locations" for 127.0.0.1 at 2021-07-14 22:36:28 +0200
+Processing by LocationsController#create as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Create (0.4ms)[0m  [1m[32mINSERT INTO "locations" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2021-07-14 20:36:28.790076"], ["updated_at", "2021-07-14 20:36:28.790076"]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 3.0ms | Allocations: 10408)
+
+
+  
+NameError (undefined local variable or method `id' for #<LocationsController:0x00000000030c28>):
+  
+app/controllers/locations_controller.rb:32:in `create'
+Started POST "/locations" for 127.0.0.1 at 2021-07-14 22:37:01 +0200
+Processing by LocationsController#create as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 2.0ms | Allocations: 9588)
+
+
+  
+NameError (undefined local variable or method `null' for #<LocationsController:0x00000000031d58>):
+  
+app/controllers/locations_controller.rb:32:in `create'
+Started POST "/locations" for 127.0.0.1 at 2021-07-14 22:37:20 +0200
+Processing by LocationsController#create as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 7865)
+
+
+Started POST "/locations" for 127.0.0.1 at 2021-07-14 22:37:36 +0200
+Processing by LocationsController#create as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+Completed 200 OK in 29ms (Views: 1.1ms | ActiveRecord: 2.6ms | Allocations: 7881)
+
+
+Started POST "/locations" for 127.0.0.1 at 2021-07-14 22:38:01 +0200
+Processing by LocationsController#create as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 3.0ms | Allocations: 9387)
+
+
+  
+NameError (uninitialized constant LocationsController::NULL):
+  
+app/controllers/locations_controller.rb:32:in `create'
+Started POST "/locations" for 127.0.0.1 at 2021-07-14 22:38:54 +0200
+Processing by LocationsController#create as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+Completed 200 OK in 22ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 7802)
+
+
+Started POST "/locations" for 127.0.0.1 at 2021-07-14 22:39:28 +0200
+Processing by LocationsController#create as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+Completed 204 No Content in 25ms (ActiveRecord: 2.5ms | Allocations: 7692)
+
+
+Started POST "/locations" for 127.0.0.1 at 2021-07-14 22:39:31 +0200
+Processing by LocationsController#create as */*
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+Completed 204 No Content in 4ms (ActiveRecord: 0.4ms | Allocations: 1887)
+
+
+Started POST "/locations?slug_name=paris" for 127.0.0.1 at 2021-07-14 22:39:45 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"slug_name"=>"paris"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" IS NOT NULL AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "paris"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "paris"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+Completed 204 No Content in 18ms (ActiveRecord: 1.9ms | Allocations: 2846)
+
+
+Started POST "/locations?slug_name=bra" for 127.0.0.1 at 2021-07-14 22:39:51 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"slug_name"=>"bra"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" IS NOT NULL AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "bra"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "bra"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Create (0.8ms)[0m  [1m[32mINSERT INTO "locations" ("slug_name", "created_at", "updated_at", "slug") VALUES (?, ?, ?, ?)[0m  [["slug_name", "bra"], ["created_at", "2021-07-14 20:39:51.640512"], ["updated_at", "2021-07-14 20:39:51.640512"], ["slug", "bra"]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (11.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+Completed 200 OK in 27ms (Views: 0.6ms | ActiveRecord: 13.3ms | Allocations: 3593)
+
+
+Started POST "/locations?slug_name=brussels" for 127.0.0.1 at 2021-07-14 22:40:40 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"slug_name"=>"brussels"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" IS NOT NULL AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+Completed 204 No Content in 54ms (ActiveRecord: 5.3ms | Allocations: 8685)
+
+
+Started POST "/locations?slug_name=brussels" for 127.0.0.1 at 2021-07-14 22:41:18 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"slug_name"=>"brussels"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" IS NOT NULL AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+Completed 200 OK in 30ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 8763)
+
+
+Started POST "/locations?slug_name=brussels" for 127.0.0.1 at 2021-07-14 22:41:45 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"slug_name"=>"brussels"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" IS NOT NULL AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mLocation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/locations_controller.rb:27:in `create'
+Completed 200 OK in 29ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 8761)
+
+

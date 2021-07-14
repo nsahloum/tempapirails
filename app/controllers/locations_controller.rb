@@ -29,7 +29,11 @@ class LocationsController < ApplicationController
             longitude: params[:longitude],
             slug_name: params[:slug_name]
         )
-        render json: @location
+		if @location.id != nil
+        	render json: @location
+		else 
+			render json: "This location already exists"
+		end
     end 
 
     def update
