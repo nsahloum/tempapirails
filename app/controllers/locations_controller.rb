@@ -11,12 +11,16 @@ class LocationsController < ApplicationController
 	
 	def index
         @locations = Location.all 
-        render json: @locations
+		@locations = @locations.filter_by_slug(params[:slug]) if params[:slug].present?
+		# @locations.each do |location|
+		# 	render json: location.forecasted_temperatures[0].min_forecasted
+		# end
+		render json: @locations
     end 
 
     def show
         @location = Location.friendly.find(params[:id])
-        render json: @location.forecasted_temperatures[0].min_forecasted
+        render json: @location
     end 
 
     def create
@@ -40,7 +44,11 @@ class LocationsController < ApplicationController
 
     def destroy
         @locations = Location.all 
-        @location = Location.find(params[:id])
+        @location = Location.friendly.find(params[:id])
+		@forecasted_temperatures = @location.forecasted_temperatures
+		@forecasted_temperatures.each do |fore_temp|
+			fore_temp.destroy
+		end
         @location.destroy
         render json: @locations
     end 

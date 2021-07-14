@@ -8,4 +8,11 @@ class ForecastedTemperaturesController < ApplicationController
         @forecasted_temperatures = ForecastedTemperature.find(params[:id])
         render json: @forecasted_temperature
     end 
+
+	def destroy
+        @forecasted_temperatures = ForecastedTemperature.all 
+        @forecasted_temperature = ForecastedTemperature.find(params[:id])
+        @forecasted_temperature.destroy
+        render json: @forecasted_temperatures
+    end 
 end
