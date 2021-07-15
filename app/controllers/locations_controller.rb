@@ -11,7 +11,6 @@ class LocationsController < ApplicationController
 	
 	def index
         @locations = Location.all 
-		@locations = @locations.filter_by_slug(params[:slug]) if params[:slug].present?
 		# @locations.each do |location|
 		# 	render json: location.forecasted_temperatures[0].min_forecasted
 		# end

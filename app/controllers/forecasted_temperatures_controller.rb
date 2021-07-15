@@ -1,6 +1,7 @@
 class ForecastedTemperaturesController < ApplicationController
 	def index
-        @forecasted_temperatures = ForecastedTemperature.all 
+		@location = Location.friendly.find(params[:location_id])
+        @forecasted_temperatures = @location.forecasted_temperatures
         render json: @forecasted_temperatures
     end 
 
