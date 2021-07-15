@@ -2607,3 +2607,37 @@ Processing by ForecastedTemperaturesController#index as */*
 Completed 200 OK in 9ms (Views: 4.1ms | ActiveRecord: 1.1ms | Allocations: 1463)
 
 
+Started GET "/paris" for 127.0.0.1 at 2021-07-15 04:11:06 +0200
+Processing by ForecastedTemperaturesController#index as */*
+  Parameters: {"location_slug"=>"paris"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:3:in `index'
+Completed 404 Not Found in 11ms (ActiveRecord: 0.4ms | Allocations: 2261)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Location without an ID):
+  
+app/controllers/forecasted_temperatures_controller.rb:3:in `index'
+Started GET "/paris" for 127.0.0.1 at 2021-07-15 04:11:49 +0200
+Processing by ForecastedTemperaturesController#index as */*
+  Parameters: {"location_id"=>"paris"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:3:in `index'
+  [1m[36mLocation Load (1.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "paris"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:3:in `index'
+  [1m[36mForecastedTemperature Load (3.8ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ?[0m  [["location_id", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:5:in `index'
+Completed 200 OK in 50ms (Views: 14.4ms | ActiveRecord: 7.5ms | Allocations: 11566)
+
+
+Started GET "/brussels" for 127.0.0.1 at 2021-07-15 04:12:02 +0200
+Processing by ForecastedTemperaturesController#index as */*
+  Parameters: {"location_id"=>"brussels"}
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:3:in `index'
+  [1m[36mForecastedTemperature Load (0.2ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ?[0m  [["location_id", 2]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 2.2ms | ActiveRecord: 0.4ms | Allocations: 1462)
+
+
