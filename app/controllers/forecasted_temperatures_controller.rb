@@ -1,12 +1,12 @@
 class ForecastedTemperaturesController < ApplicationController
+	
 	def index
-		@location = Location.friendly.find(params[:location_id])
-        @forecasted_temperatures = @location.forecasted_temperatures
-        render json: @forecasted_temperatures
+		@forecasted_temperatures = ForecastedTemperature.all
+		render json: @forecasted_temperatures
     end 
 
     def show
-        @forecasted_temperatures = ForecastedTemperature.find(params[:id])
+        @forecasted_temperature = ForecastedTemperature.find(params[:id])
         render json: @forecasted_temperature
     end 
 
@@ -16,4 +16,10 @@ class ForecastedTemperaturesController < ApplicationController
         @forecasted_temperature.destroy
         render json: @forecasted_temperatures
     end 
+
+	def show_location_temp
+		@location = Location.friendly.find(params[:location_id])
+        @forecasted_temperatures = @location.forecasted_temperatures
+        render json: @forecasted_temperatures
+	end
 end

@@ -2641,3 +2641,175 @@ Processing by ForecastedTemperaturesController#index as */*
 Completed 200 OK in 5ms (Views: 2.2ms | ActiveRecord: 0.4ms | Allocations: 1462)
 
 
+Started GET "/brussels" for 127.0.0.1 at 2021-07-17 21:48:05 +0200
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ForecastedTemperaturesController#index as */*
+  Parameters: {"location_id"=>"brussels"}
+  [1m[36mLocation Load (0.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:3:in `index'
+  [1m[36mForecastedTemperature Load (0.4ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ?[0m  [["location_id", 2]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:5:in `index'
+Completed 200 OK in 139ms (Views: 31.9ms | ActiveRecord: 13.0ms | Allocations: 18512)
+
+
+Started GET "/locations/brussels" for 127.0.0.1 at 2021-07-17 21:48:25 +0200
+Processing by LocationsController#show as */*
+  Parameters: {"id"=>"brussels"}
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21:in `show'
+Completed 200 OK in 9ms (Views: 0.7ms | ActiveRecord: 0.9ms | Allocations: 1131)
+
+
+Started GET "/locations/forecasted_temperatures" for 127.0.0.1 at 2021-07-17 21:48:40 +0200
+Processing by LocationsController#show as */*
+  Parameters: {"id"=>"forecasted_temperatures"}
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "forecasted_temperatures"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:21:in `show'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.2ms | Allocations: 823)
+
+
+  
+ActiveRecord::RecordNotFound (can't find record with friendly id: "forecasted_temperatures"):
+  
+app/controllers/locations_controller.rb:21:in `show'
+Started GET "/forecasted_temperatures" for 127.0.0.1 at 2021-07-17 21:48:54 +0200
+Processing by ForecastedTemperaturesController#index as */*
+  Parameters: {"location_id"=>"forecasted_temperatures"}
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "forecasted_temperatures"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:3:in `index'
+Completed 404 Not Found in 7ms (ActiveRecord: 0.3ms | Allocations: 733)
+
+
+  
+ActiveRecord::RecordNotFound (can't find record with friendly id: "forecasted_temperatures"):
+  
+app/controllers/forecasted_temperatures_controller.rb:3:in `index'
+Started GET "/forecasted_temperatures" for 127.0.0.1 at 2021-07-17 21:51:30 +0200
+Processing by ForecastedTemperaturesController#index as */*
+  Parameters: {"location_id"=>"forecasted_temperatures"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:4:in `index'
+  [1m[36mForecastedTemperature Load (0.6ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures"[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:4:in `index'
+Completed 200 OK in 28ms (Views: 19.0ms | ActiveRecord: 1.9ms | Allocations: 5917)
+
+
+Started GET "/forecasted_temperatures" for 127.0.0.1 at 2021-07-17 21:54:16 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"location_id"=>"forecasted_temperatures"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:4:in `show_location_temp'
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "forecasted_temperatures"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:4:in `show_location_temp'
+Completed 404 Not Found in 18ms (ActiveRecord: 3.3ms | Allocations: 3841)
+
+
+  
+ActiveRecord::RecordNotFound (can't find record with friendly id: "forecasted_temperatures"):
+  
+app/controllers/forecasted_temperatures_controller.rb:4:in `show_location_temp'
+Started GET "/forecasted_temperatures" for 127.0.0.1 at 2021-07-17 21:55:16 +0200
+  
+AbstractController::ActionNotFound (The action 'show_location_temp' could not be found for ForecastedTemperaturesController
+Did you mean?  show
+               destroy
+               index):
+  
+actionpack (6.1.4) lib/abstract_controller/base.rb:160:in `process'
+actionpack (6.1.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.4) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.1.4) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.1.4) lib/rails/engine.rb:539:in `call'
+puma (5.3.2) lib/puma/configuration.rb:249:in `call'
+puma (5.3.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.3.2) lib/puma/thread_pool.rb:338:in `with_force_shutdown'
+puma (5.3.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.3.2) lib/puma/server.rb:438:in `process_client'
+puma (5.3.2) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+Started GET "/forecasted_temperatures" for 127.0.0.1 at 2021-07-17 21:56:13 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"location_id"=>"forecasted_temperatures"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:23:in `show_location_temp'
+  [1m[36mLocation Load (1.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "forecasted_temperatures"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:23:in `show_location_temp'
+Completed 404 Not Found in 17ms (ActiveRecord: 5.3ms | Allocations: 3855)
+
+
+  
+ActiveRecord::RecordNotFound (can't find record with friendly id: "forecasted_temperatures"):
+  
+app/controllers/forecasted_temperatures_controller.rb:23:in `show_location_temp'
+Started GET "/forecasted_temperatures/1" for 127.0.0.1 at 2021-07-17 21:56:19 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/forecasted_temperatures/1"):
+  
+Started GET "/forecasted_temperatures/" for 127.0.0.1 at 2021-07-17 21:56:43 +0200
+Processing by ForecastedTemperaturesController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:6:in `index'
+  [1m[36mForecastedTemperature Load (0.6ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures"[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:6:in `index'
+Completed 200 OK in 21ms (Views: 17.9ms | ActiveRecord: 4.0ms | Allocations: 5970)
+
+
+Started GET "/paris" for 127.0.0.1 at 2021-07-17 21:58:58 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"location_id"=>"paris"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:21:in `show_location_temp'
+  [1m[36mLocation Load (1.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "paris"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:21:in `show_location_temp'
+  [1m[36mForecastedTemperature Load (0.5ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ?[0m  [["location_id", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:23:in `show_location_temp'
+Completed 200 OK in 52ms (Views: 13.2ms | ActiveRecord: 5.9ms | Allocations: 11570)
+
+
+Started GET "/locations" for 127.0.0.1 at 2021-07-17 22:34:17 +0200
+Processing by LocationsController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:17:in `index'
+  [1m[36mLocation Load (0.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:17:in `index'
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 1.1ms | Allocations: 1985)
+
+
+Started GET "/locations" for 127.0.0.1 at 2021-07-17 22:34:20 +0200
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:17:in `index'
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.3ms | Allocations: 1097)
+
+
