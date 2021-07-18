@@ -3412,3 +3412,158 @@ Processing by ForecastedTemperaturesController#show_location_temp as */*
 Completed 200 OK in 1469ms (Views: 4.0ms | ActiveRecord: 18.4ms | Allocations: 20904)
 
 
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to UniquenessTemperatures (20210718020202)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_forecasted_temperatures_on_location_id_and_date_forecasted" ON "forecasted_temperatures" ("location_id", "date_forecasted")[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/brussels" for 127.0.0.1 at 2021-07-18 04:07:02 +0200
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"location_id"=>"brussels"}
+  [1m[36mLocation Load (0.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:46:in `show_location_temp'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `create_temp'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `create_temp'
+  [1m[36mForecastedTemperature Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 1], ["date_forecasted", "2021-07-17"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `create_temp'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `create_temp'
+  [1m[36mForecastedTemperature Load (0.3ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ?[0m  [["location_id", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:51:in `show_location_temp'
+Completed 200 OK in 3085ms (Views: 4.3ms | ActiveRecord: 2.0ms | Allocations: 15959)
+
+
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLocations (20210708212947)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "locations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "latitude" varchar, "longitude" varchar, "slug_name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210708212947"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddSlugToLocations (20210711131909)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "locations" ADD "slug" varchar[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_locations_on_slug" ON "locations" ("slug")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210711131909"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFriendlyIdSlugs (20210711131918)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "friendly_id_slugs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "slug" varchar NOT NULL, "sluggable_id" integer NOT NULL, "sluggable_type" varchar(50), "scope" varchar, "created_at" datetime)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id" ON "friendly_id_slugs" ("sluggable_type", "sluggable_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_friendly_id_slugs_on_slug_and_sluggable_type" ON "friendly_id_slugs" ("slug", "sluggable_type")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope" ON "friendly_id_slugs" ("slug", "sluggable_type", "scope")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210711131918"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateForecastedTemperatures (20210712180850)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "forecasted_temperatures" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "date_forecasted" date, "min_forecasted" integer, "max_forecasted" integer, "location_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210712180850"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to ChangeForecastedTemperature (20210712185726)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aforecasted_temperatures" ("id" integer NOT NULL PRIMARY KEY, "date_forecasted" date DEFAULT NULL, "min_forecasted" integer DEFAULT NULL, "max_forecasted" integer DEFAULT NULL, "location_id" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aforecasted_temperatures" ("id","date_forecasted","min_forecasted","max_forecasted","location_id","created_at","updated_at")
+                     SELECT "id","date_forecasted","min_forecasted","max_forecasted","location_id","created_at","updated_at" FROM "forecasted_temperatures"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "forecasted_temperatures"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "forecasted_temperatures" ("id" integer NOT NULL PRIMARY KEY, "date_forecasted" date DEFAULT NULL, "min_forecasted" integer DEFAULT NULL, "max_forecasted" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("id","date_forecasted","min_forecasted","max_forecasted","created_at","updated_at")
+                     SELECT "id","date_forecasted","min_forecasted","max_forecasted","created_at","updated_at" FROM "aforecasted_temperatures"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aforecasted_temperatures"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "forecasted_temperatures" ADD "location_slug" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210712185726"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to ChangeOtherForecastedTemperature (20210712191528)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "forecasted_temperatures" ADD "location_id" integer[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aforecasted_temperatures" ("id" integer NOT NULL PRIMARY KEY, "date_forecasted" date DEFAULT NULL, "min_forecasted" integer DEFAULT NULL, "max_forecasted" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "location_slug" varchar DEFAULT NULL, "location_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aforecasted_temperatures" ("id","date_forecasted","min_forecasted","max_forecasted","created_at","updated_at","location_slug","location_id")
+                     SELECT "id","date_forecasted","min_forecasted","max_forecasted","created_at","updated_at","location_slug","location_id" FROM "forecasted_temperatures"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "forecasted_temperatures"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "forecasted_temperatures" ("id" integer NOT NULL PRIMARY KEY, "date_forecasted" date DEFAULT NULL, "min_forecasted" integer DEFAULT NULL, "max_forecasted" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "location_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("id","date_forecasted","min_forecasted","max_forecasted","created_at","updated_at","location_id")
+                     SELECT "id","date_forecasted","min_forecasted","max_forecasted","created_at","updated_at","location_id" FROM "aforecasted_temperatures"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aforecasted_temperatures"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210712191528"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-07-18 02:08:04.436068"], ["updated_at", "2021-07-18 02:08:04.436068"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" IS NOT NULL AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  [1m[36mLocation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "brussels"], ["LIMIT", 1]]
+  [1m[36mLocation Create (0.6ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "slug_name", "created_at", "updated_at", "slug") VALUES (?, ?, ?, ?, ?, ?)[0m  [["latitude", "50.85"], ["longitude", "4.352"], ["slug_name", "brussels"], ["created_at", "2021-07-18 02:08:36.878220"], ["updated_at", "2021-07-18 02:08:36.878220"], ["slug", "brussels"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/brussels" for 127.0.0.1 at 2021-07-18 04:08:42 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"location_id"=>"brussels"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:46:in `show_location_temp'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:46:in `show_location_temp'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `create_temp'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `create_temp'
+  [1m[36mForecastedTemperature Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 1], ["date_forecasted", "2021-07-17"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `create_temp'
+  [1m[36mForecastedTemperature Create (0.5ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-17"], ["min_forecasted", 13], ["max_forecasted", 26], ["created_at", "2021-07-18 02:08:43.857936"], ["updated_at", "2021-07-18 02:08:43.857936"], ["location_id", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `create_temp'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `create_temp'
+  [1m[36mForecastedTemperature Load (0.5ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ?[0m  [["location_id", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:51:in `show_location_temp'
+Completed 200 OK in 1465ms (Views: 6.1ms | ActiveRecord: 10.9ms | Allocations: 17424)
+
+
+Started GET "/brussels" for 127.0.0.1 at 2021-07-18 04:08:53 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"location_id"=>"brussels"}
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:46:in `show_location_temp'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `create_temp'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `create_temp'
+  [1m[36mForecastedTemperature Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 1], ["date_forecasted", "2021-07-17"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `create_temp'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `create_temp'
+  [1m[36mForecastedTemperature Load (0.5ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ?[0m  [["location_id", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:51:in `show_location_temp'
+Completed 200 OK in 1265ms (Views: 5.6ms | ActiveRecord: 1.6ms | Allocations: 6111)
+
+
