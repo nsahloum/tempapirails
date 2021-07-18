@@ -16,22 +16,37 @@ class ForecastedTemperaturesController < ApplicationController
         @forecasted_temperature.destroy
         render json: @forecasted_temperatures
     end 
+	
+	def parse_days (day, all_days, first)
+		while first == 0 || @start % 24 != 0
+			first = 1
+			@start = @start + 3
+			day << all_days[@i]
+			@i = @i + 1
+		end
+	end
 
 	def create_temp(data, location)
+		@i = 0
+		all_days = []
+		data["dataseries"].each do |elem|
+			all_days << elem["temp2m"]
+		end		
+		timezone = 0
+		@start = 18 + timezone + 3
 		day_1 = []
 		day_2 = []
 		day_3 = []
 		day_4 = []
-		timezone = 0
-		start = 18 + timezone
-		i = 0
-		while timezone != 24
-			day_1 << data["dataseries"][i]["temp2m"]
-			i = i + 1
-			timezone = timezone + 3
-		end
-		ForecastedTemperature.create(date_forecasted: DateTime.parse(data["init"]).to_date, min_forecasted: day_1.min, max_forecasted: day_1.max, location_id: location.id)
-		#return DateTime.parse(data[init]).to_date
+		parse_days(day_1, all_days, 0)
+		parse_days(day_2, all_days, 0)
+		parse_days(day_3, all_days, 0)
+		parse_days(day_4, all_days, 0)
+		to_delete = day_1.length()
+		day_4.pop(to_delete)
+		#ForecastedTemperature.create(date_forecasted: DateTime.parse(data["init"]).to_date, min_forecasted: day_1.min, max_forecasted: day_1.max, location_id: location.id)
+		#ForecastedTemperature.create(date_forecasted: DateTime.parse(data["init"]).to_date + 1, min_forecasted: day_2.min, max_forecasted: day_2.max, location_id: location.id)
+		render json: day_4
 	end
 
 	def get_data(location, long, lat)
@@ -48,6 +63,6 @@ class ForecastedTemperaturesController < ApplicationController
 		@lat = @location.latitude
 		get_data(@location, @long, @lat)
         @forecasted_temperatures = @location.forecasted_temperatures
-        render json: @forecasted_temperatures
+        #render json: @forecasted_temperatures
 	end
 end
