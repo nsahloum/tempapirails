@@ -16,47 +16,58 @@ class ForecastedTemperaturesController < ApplicationController
         @forecasted_temperature.destroy
         render json: @forecasted_temperatures
     end 
-	
-	def parse_days (day, all_days, first)
-		while first == 0 || @start % 24 != 0
-			first = 1
-			@start = @start + 3
-			day << all_days[@i]
-			@i = @i + 1
+
+	def interval_days(data)
+		timepoints = []
+		data["dataseries"].each do |elem|
+			timepoints << elem["timepoint"]
+		end	
+		@number_days = (timepoints.last / 24) + 1
+		@frequency_hours = timepoints[1] - timepoints[0]
+	end
+
+	def create_temperatures(days, location, data)
+		date = DateTime.parse(data["init"]).to_date
+		i = 1
+		@number_days.times do
+			ForecastedTemperature.create(date_forecasted: date, min_forecasted: days[i].min, max_forecasted: days[i].max, location_id: location.id)
+			date = date + 1
+			i = i + 1
 		end
 	end
 
-	def create_temp(data, location)
-		@i = 0
-		all_days = []
+	def get_temp(data, location)
+		@start = data["init"].last(2).to_i
+		interval_days(data)
+		all_days_temp = []
 		data["dataseries"].each do |elem|
-			all_days << elem["temp2m"]
+			all_days_temp << elem["temp2m"]
 		end		
 		timezone = 0
-		@start = 18 + timezone + 3
-		day_1 = []
-		day_2 = []
-		day_3 = []
-		day_4 = []
-		parse_days(day_1, all_days, 0)
-		parse_days(day_2, all_days, 0)
-		parse_days(day_3, all_days, 0)
-		parse_days(day_4, all_days, 0)
-		to_delete = day_1.length()
-		day_4.pop(to_delete)
-		ForecastedTemperature.create(date_forecasted: DateTime.parse(data["init"]).to_date, min_forecasted: day_1.min, max_forecasted: day_1.max, location_id: location.id)
-		ForecastedTemperature.create(date_forecasted: DateTime.parse(data["init"]).to_date + 1, min_forecasted: day_2.min, max_forecasted: day_2.max, location_id: location.id)
-		ForecastedTemperature.create(date_forecasted: DateTime.parse(data["init"]).to_date + 2, min_forecasted: day_3.min, max_forecasted: day_3.max, location_id: location.id)
-		ForecastedTemperature.create(date_forecasted: DateTime.parse(data["init"]).to_date + 3, min_forecasted: day_4.min, max_forecasted: day_4.max, location_id: location.id)
-		#render json: day_1.max
+		@start = @start + timezone + @frequency_hours
+		days = {}
+		i = 1
+		a = 0
+		@number_days.times do
+			days[i] = []
+			while @start < 24
+				days[i] << all_days_temp[a]
+				a = a + 1
+				@start = @start + @frequency_hours
+			end
+			@start = 0
+			i = i + 1
+		end
+		to_delete = days[1].length()
+		days[i-1].pop(to_delete)
+		create_temperatures(days, location, data)
 	end
 
 	def get_data(location, long, lat)
 		url = "https://www.7timer.info/bin/api.pl?lon=#{long}&lat=#{lat}&product=astro&output=json"
 		response = RestClient.get(url)
 		response_hash = JSON.parse(response)
-		create_temp(response_hash, location)
-		#render json: response_hash["init"]
+		get_temp(response_hash, location)
 	end
 	
 	def show_location_temp
