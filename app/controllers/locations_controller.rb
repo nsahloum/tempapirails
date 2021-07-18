@@ -2,18 +2,9 @@ class LocationsController < ApplicationController
 	
 	require 'rest-client'
 	require 'json'
-
-	def get_temp
-		url = "https://www.7timer.info/bin/api.pl?lon=#{longitude}&lat=#{latitude}&product=astro&output=json"
-		response = RestClient.get(url)
-		response_hash = JSON.parse(response)
-	end
 	
 	def index
         @locations = Location.all 
-		# @locations.each do |location|
-		# 	render json: location.forecasted_temperatures[0].min_forecasted
-		# end
 		render json: @locations
     end 
 
