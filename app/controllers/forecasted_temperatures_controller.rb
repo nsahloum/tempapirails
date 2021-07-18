@@ -44,9 +44,11 @@ class ForecastedTemperaturesController < ApplicationController
 		parse_days(day_4, all_days, 0)
 		to_delete = day_1.length()
 		day_4.pop(to_delete)
-		#ForecastedTemperature.create(date_forecasted: DateTime.parse(data["init"]).to_date, min_forecasted: day_1.min, max_forecasted: day_1.max, location_id: location.id)
-		#ForecastedTemperature.create(date_forecasted: DateTime.parse(data["init"]).to_date + 1, min_forecasted: day_2.min, max_forecasted: day_2.max, location_id: location.id)
-		render json: day_4
+		ForecastedTemperature.create(date_forecasted: DateTime.parse(data["init"]).to_date, min_forecasted: day_1.min, max_forecasted: day_1.max, location_id: location.id)
+		ForecastedTemperature.create(date_forecasted: DateTime.parse(data["init"]).to_date + 1, min_forecasted: day_2.min, max_forecasted: day_2.max, location_id: location.id)
+		ForecastedTemperature.create(date_forecasted: DateTime.parse(data["init"]).to_date + 2, min_forecasted: day_3.min, max_forecasted: day_3.max, location_id: location.id)
+		ForecastedTemperature.create(date_forecasted: DateTime.parse(data["init"]).to_date + 3, min_forecasted: day_4.min, max_forecasted: day_4.max, location_id: location.id)
+		#render json: day_1.max
 	end
 
 	def get_data(location, long, lat)
@@ -63,6 +65,6 @@ class ForecastedTemperaturesController < ApplicationController
 		@lat = @location.latitude
 		get_data(@location, @long, @lat)
         @forecasted_temperatures = @location.forecasted_temperatures
-        #render json: @forecasted_temperatures
+        render json: @forecasted_temperatures
 	end
 end
