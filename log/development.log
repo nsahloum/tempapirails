@@ -6869,3 +6869,267 @@ Processing by ForecastedTemperaturesController#show_location_temp as */*
 Completed 200 OK in 1545ms (Views: 0.3ms | ActiveRecord: 5.7ms | Allocations: 27914)
 
 
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLocations (20210708212947)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "locations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "latitude" varchar, "longitude" varchar, "slug_name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210708212947"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddSlugToLocations (20210711131909)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "locations" ADD "slug" varchar[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_locations_on_slug" ON "locations" ("slug")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210711131909"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFriendlyIdSlugs (20210711131918)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "friendly_id_slugs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "slug" varchar NOT NULL, "sluggable_id" integer NOT NULL, "sluggable_type" varchar(50), "scope" varchar, "created_at" datetime)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id" ON "friendly_id_slugs" ("sluggable_type", "sluggable_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_friendly_id_slugs_on_slug_and_sluggable_type" ON "friendly_id_slugs" ("slug", "sluggable_type")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope" ON "friendly_id_slugs" ("slug", "sluggable_type", "scope")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210711131918"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateForecastedTemperatures (20210712180850)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "forecasted_temperatures" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "date_forecasted" date, "min_forecasted" integer, "max_forecasted" integer, "location_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210712180850"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to ChangeForecastedTemperature (20210712185726)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aforecasted_temperatures" ("id" integer NOT NULL PRIMARY KEY, "date_forecasted" date DEFAULT NULL, "min_forecasted" integer DEFAULT NULL, "max_forecasted" integer DEFAULT NULL, "location_id" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aforecasted_temperatures" ("id","date_forecasted","min_forecasted","max_forecasted","location_id","created_at","updated_at")
+                     SELECT "id","date_forecasted","min_forecasted","max_forecasted","location_id","created_at","updated_at" FROM "forecasted_temperatures"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "forecasted_temperatures"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "forecasted_temperatures" ("id" integer NOT NULL PRIMARY KEY, "date_forecasted" date DEFAULT NULL, "min_forecasted" integer DEFAULT NULL, "max_forecasted" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("id","date_forecasted","min_forecasted","max_forecasted","created_at","updated_at")
+                     SELECT "id","date_forecasted","min_forecasted","max_forecasted","created_at","updated_at" FROM "aforecasted_temperatures"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aforecasted_temperatures"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "forecasted_temperatures" ADD "location_slug" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210712185726"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to ChangeOtherForecastedTemperature (20210712191528)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "forecasted_temperatures" ADD "location_id" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aforecasted_temperatures" ("id" integer NOT NULL PRIMARY KEY, "date_forecasted" date DEFAULT NULL, "min_forecasted" integer DEFAULT NULL, "max_forecasted" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "location_slug" varchar DEFAULT NULL, "location_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aforecasted_temperatures" ("id","date_forecasted","min_forecasted","max_forecasted","created_at","updated_at","location_slug","location_id")
+                     SELECT "id","date_forecasted","min_forecasted","max_forecasted","created_at","updated_at","location_slug","location_id" FROM "forecasted_temperatures"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "forecasted_temperatures"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "forecasted_temperatures" ("id" integer NOT NULL PRIMARY KEY, "date_forecasted" date DEFAULT NULL, "min_forecasted" integer DEFAULT NULL, "max_forecasted" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "location_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("id","date_forecasted","min_forecasted","max_forecasted","created_at","updated_at","location_id")
+                     SELECT "id","date_forecasted","min_forecasted","max_forecasted","created_at","updated_at","location_id" FROM "aforecasted_temperatures"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aforecasted_temperatures"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210712191528"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-07-19 04:34:57.401589"], ["updated_at", "2021-07-19 04:34:57.401589"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" IS NOT NULL AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "london"], ["LIMIT", 1]]
+  [1m[36mLocation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "london"], ["LIMIT", 1]]
+  [1m[36mLocation Create (0.5ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "slug_name", "created_at", "updated_at", "slug") VALUES (?, ?, ?, ?, ?, ?)[0m  [["latitude", "51.507"], ["longitude", "-0.128"], ["slug_name", "london"], ["created_at", "2021-07-19 04:35:31.286674"], ["updated_at", "2021-07-19 04:35:31.286674"], ["slug", "london"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" IS NOT NULL AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "new-york"], ["LIMIT", 1]]
+  [1m[36mLocation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "new-york"], ["LIMIT", 1]]
+  [1m[36mLocation Create (0.4ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "slug_name", "created_at", "updated_at", "slug") VALUES (?, ?, ?, ?, ?, ?)[0m  [["latitude", "40.713"], ["longitude", "-74.006"], ["slug_name", "new-york"], ["created_at", "2021-07-19 04:35:31.295940"], ["updated_at", "2021-07-19 04:35:31.295940"], ["slug", "new-york"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/new-york" for 127.0.0.1 at 2021-07-19 06:35:48 +0200
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"location_id"=>"new-york"}
+  [1m[36mLocation Load (2.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "new-york"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:80:in `show_location_temp'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:69:in `get_data'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 1], ["date_forecasted", "2021-07-18"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (0.5ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-18"], ["min_forecasted", 23], ["max_forecasted", 23], ["created_at", "2021-07-19 04:35:50.773065"], ["updated_at", "2021-07-19 04:35:50.773065"], ["location_id", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 1], ["date_forecasted", "2021-07-19"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (0.4ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-19"], ["min_forecasted", 20], ["max_forecasted", 29], ["created_at", "2021-07-19 04:35:50.784968"], ["updated_at", "2021-07-19 04:35:50.784968"], ["location_id", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 1], ["date_forecasted", "2021-07-20"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (0.4ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-20"], ["min_forecasted", 17], ["max_forecasted", 28], ["created_at", "2021-07-19 04:35:50.794451"], ["updated_at", "2021-07-19 04:35:50.794451"], ["location_id", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 1], ["date_forecasted", "2021-07-21"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (0.4ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-21"], ["min_forecasted", 17], ["max_forecasted", 28], ["created_at", "2021-07-19 04:35:50.805925"], ["updated_at", "2021-07-19 04:35:50.805925"], ["location_id", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 2], ["date_forecasted", "2021-07-18"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (0.4ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-18"], ["min_forecasted", 23], ["max_forecasted", 28], ["created_at", "2021-07-19 04:35:52.711587"], ["updated_at", "2021-07-19 04:35:52.711587"], ["location_id", 2]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 2], ["date_forecasted", "2021-07-19"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (0.4ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-19"], ["min_forecasted", 21], ["max_forecasted", 31], ["created_at", "2021-07-19 04:35:52.723188"], ["updated_at", "2021-07-19 04:35:52.723188"], ["location_id", 2]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 2], ["date_forecasted", "2021-07-20"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (0.8ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-20"], ["min_forecasted", 23], ["max_forecasted", 34], ["created_at", "2021-07-19 04:35:52.736877"], ["updated_at", "2021-07-19 04:35:52.736877"], ["location_id", 2]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 2], ["date_forecasted", "2021-07-21"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (0.4ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-21"], ["min_forecasted", 24], ["max_forecasted", 34], ["created_at", "2021-07-19 04:35:52.746163"], ["updated_at", "2021-07-19 04:35:52.746163"], ["location_id", 2]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Load (0.3ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ?[0m  [["location_id", 2]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:85:in `show_location_temp'
+Completed 200 OK in 4451ms (Views: 17.7ms | ActiveRecord: 24.2ms | Allocations: 73498)
+
+
+Started GET "/london" for 127.0.0.1 at 2021-07-19 06:36:03 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"location_id"=>"london"}
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "london"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:80:in `show_location_temp'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:69:in `get_data'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 1], ["date_forecasted", "2021-07-18"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 1], ["date_forecasted", "2021-07-19"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 1], ["date_forecasted", "2021-07-20"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 1], ["date_forecasted", "2021-07-21"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 2], ["date_forecasted", "2021-07-18"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 2], ["date_forecasted", "2021-07-19"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 2], ["date_forecasted", "2021-07-20"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mLocation Load (0.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 2], ["date_forecasted", "2021-07-21"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:33:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Load (0.7ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ?[0m  [["location_id", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:85:in `show_location_temp'
+Completed 200 OK in 5045ms (Views: 8.2ms | ActiveRecord: 8.5ms | Allocations: 28080)
+
+

@@ -64,18 +64,22 @@ class ForecastedTemperaturesController < ApplicationController
 		create_temperatures(days, location, data)
 	end
 
-	def get_data(location, long, lat)
-		url = "https://www.7timer.info/bin/api.pl?lon=#{long}&lat=#{lat}&product=astro&output=json"
-		response = RestClient.get(url)
-		response_hash = JSON.parse(response)
-		get_temp(response_hash, location)
+	def get_data
+		@locations = Location.all
+		@locations.each do |location|
+			@long = location.longitude
+			@lat = location.latitude
+			url = "https://www.7timer.info/bin/api.pl?lon=#{@long}&lat=#{@lat}&product=astro&output=json"
+			response = RestClient.get(url)
+			response_hash = JSON.parse(response)
+			get_temp(response_hash, location)
+		end
 	end
 	
 	def show_location_temp
 		@location = Location.friendly.find(params[:location_id])
 		@long = @location.longitude
 		@lat = @location.latitude
-		get_data(@location, @long, @lat)
         @forecasted_temperatures = @location.forecasted_temperatures
         render json: @forecasted_temperatures
 	end

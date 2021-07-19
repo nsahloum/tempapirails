@@ -1,0 +1,151 @@
+/Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:85:in `pwd': Operation not permitted - getcwd (Errno::EPERM)
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:85:in `lockfile_contents'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:73:in `lockfile_version'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:22:in `bundler_version_with_reason'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:7:in `bundler_version'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:45:in `filter!'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/dependency.rb:284:in `matching_specs'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems.rb:264:in `find_spec_for_exe'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems.rb:294:in `activate_bin_path'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/bin/bundle:23:in `<main>'
+/Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:85:in `pwd': Operation not permitted - getcwd (Errno::EPERM)
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:85:in `lockfile_contents'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:73:in `lockfile_version'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:22:in `bundler_version_with_reason'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:7:in `bundler_version'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:45:in `filter!'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/dependency.rb:284:in `matching_specs'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems.rb:264:in `find_spec_for_exe'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems.rb:294:in `activate_bin_path'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/bin/bundle:23:in `<main>'
+/Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:85:in `pwd': Operation not permitted - getcwd (Errno::EPERM)
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:85:in `lockfile_contents'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:73:in `lockfile_version'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:22:in `bundler_version_with_reason'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:7:in `bundler_version'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:45:in `filter!'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/dependency.rb:284:in `matching_specs'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems.rb:264:in `find_spec_for_exe'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems.rb:294:in `activate_bin_path'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/bin/bundle:23:in `<main>'
+/Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:85:in `pwd': Operation not permitted - getcwd (Errno::EPERM)
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:85:in `lockfile_contents'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:73:in `lockfile_version'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:22:in `bundler_version_with_reason'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:7:in `bundler_version'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/bundler_version_finder.rb:45:in `filter!'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems/dependency.rb:284:in `matching_specs'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems.rb:264:in `find_spec_for_exe'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/lib/ruby/2.7.0/rubygems.rb:294:in `activate_bin_path'
+	from /Users/najimasahloumi/.rbenv/versions/2.7.1/bin/bundle:23:in `<main>'
+Running via Spring preloader in process 7886
+Please specify a valid ruby command or the path of a script to run.
+Run 'rails runner -h' for help.
+
+undefined method `get_data' for ForecastedTemperature:Class
+Did you mean?  get_callbacks
+Running via Spring preloader in process 8180
+Please specify a valid ruby command or the path of a script to run.
+Run 'rails runner -h' for help.
+
+uninitialized constant ForecastedTemperatures
+Running via Spring preloader in process 8505
+Please specify a valid ruby command or the path of a script to run.
+Run 'rails runner -h' for help.
+
+undefined method `get_data' for ForecastedTemperature:Class
+Did you mean?  get_callbacks
+Running via Spring preloader in process 8780
+Please specify a valid ruby command or the path of a script to run.
+Run 'rails runner -h' for help.
+
+undefined local variable or method `get_data' for main:Object
+Running via Spring preloader in process 9043
+Please specify a valid ruby command or the path of a script to run.
+Run 'rails runner -h' for help.
+
+undefined method `get_data' for #<ForecastedTemperature id: nil, date_forecasted: nil, min_forecasted: nil, max_forecasted: nil, created_at: nil, updated_at: nil, location_id: nil>
+Running via Spring preloader in process 9297
+Please specify a valid ruby command or the path of a script to run.
+Run 'rails runner -h' for help.
+
+undefined local variable or method `forecasted_temperatures' for main:Object
+Running via Spring preloader in process 9582
+Running via Spring preloader in process 9976
+Please specify a valid ruby command or the path of a script to run.
+Run 'rails runner -h' for help.
+
+undefined method `get_all_data' for ForecastedTemperature:Class
+Did you mean?  get_callbacks
+Running via Spring preloader in process 10242
+Please specify a valid ruby command or the path of a script to run.
+Run 'rails runner -h' for help.
+
+protected method `get_callbacks' called for ForecastedTemperature:Class
+Did you mean?  set_callbacks
+               set_callback
+               reset_callbacks
+               __callbacks
+               __callbacks?
+               __callbacks=
+Running via Spring preloader in process 10514
+Please specify a valid ruby command or the path of a script to run.
+Run 'rails runner -h' for help.
+
+undefined local variable or method `controllers' for main:Object
+Running via Spring preloader in process 10886
+Please specify a valid ruby command or the path of a script to run.
+Run 'rails runner -h' for help.
+
+undefined method `get_data' for ForecastedTemperature:Class
+Did you mean?  get_callbacks
+Running via Spring preloader in process 12033
+Please specify a valid ruby command or the path of a script to run.
+Run 'rails runner -h' for help.
+
+undefined method `get_all_data' for ForecastedTemperature:Class
+Did you mean?  get_callbacks
+Running via Spring preloader in process 12287
+Please specify a valid ruby command or the path of a script to run.
+Run 'rails runner -h' for help.
+
+undefined method `get_all_data' for ForecastedTemperature:Class
+Did you mean?  get_callbacks
+Running via Spring preloader in process 12641
+Running via Spring preloader in process 12880
+Please specify a valid ruby command or the path of a script to run.
+Run 'rails runner -h' for help.
+
+undefined method `get_all_data' for ForecastedTemperature:Class
+Did you mean?  get_callbacks
+Running via Spring preloader in process 13119
+Please specify a valid ruby command or the path of a script to run.
+Run 'rails runner -h' for help.
+
+undefined method `get_all_data' for ForecastedTemperature:Class
+Did you mean?  get_callbacks
+Running via Spring preloader in process 13383
+Please specify a valid ruby command or the path of a script to run.
+Run 'rails runner -h' for help.
+
+undefined method `all_data' for ForecastedTemperature:Class
+Running via Spring preloader in process 13891
+Please specify a valid ruby command or the path of a script to run.
+Run 'rails runner -h' for help.
+
+undefined method `all_data' for ForecastedTemperature:Class
+Running via Spring preloader in process 14247
+Please specify a valid ruby command or the path of a script to run.
+Run 'rails runner -h' for help.
+
+undefined method `index' for ForecastedTemperature:Class
+Running via Spring preloader in process 14509
+Please specify a valid ruby command or the path of a script to run.
+Run 'rails runner -h' for help.
+
+undefined method `index' for Location:Class
+Running via Spring preloader in process 15361
+Please specify a valid ruby command or the path of a script to run.
+Run 'rails runner -h' for help.
+
+undefined method `hello' for ForecastedTemperature:Class
