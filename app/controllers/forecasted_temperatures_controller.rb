@@ -30,7 +30,8 @@ class ForecastedTemperaturesController < ApplicationController
 		date = DateTime.parse(data["init"]).to_date
 		i = 1
 		@number_days.times do
-			ForecastedTemperature.create(date_forecasted: date, min_forecasted: days[i].min, max_forecasted: days[i].max, location_id: location.id)
+			ForecastedTemperature.create(date_forecasted: date, min_forecasted: days[i].min,
+			max_forecasted: days[i].max, location_id: location.id)
 			date = date + 1
 			i = i + 1
 		end
@@ -43,7 +44,7 @@ class ForecastedTemperaturesController < ApplicationController
 		data["dataseries"].each do |elem|
 			all_days_temp << elem["temp2m"]
 		end		
-		timezone = 0
+		timezone = Timezone.lookup(location.latitude, location.longitude).utc_offset / 3600
 		@start = @start + timezone + @frequency_hours
 		days = {}
 		i = 1

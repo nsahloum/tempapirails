@@ -44,3 +44,6 @@ gem 'friendly_id', '~> 5.4.0'
 
 #To call an other API
 gem "rest-client"
+
+#Timezone
+gem 'timezone', '~> 1.0'
