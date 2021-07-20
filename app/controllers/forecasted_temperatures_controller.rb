@@ -90,6 +90,12 @@ class ForecastedTemperaturesController < ApplicationController
 		else
 			@forecasted_temperatures = @location.forecasted_temperatures
 		end
-        render json: @forecasted_temperatures
-	end
+			
+				# render json:
+				# 	{
+				# 		date: @forecasted_temperatures.date_forecasted, min_forecasted: @forecasted_temperatures.min_forecasted, max_forecasted: @forecasted_temperatures.max_forecasted 
+				# 	}
+			
+			render json: @forecasted_temperatures.as_json(only: [:date_forecasted, :min_forecasted, :max_forecasted])
+		end
 end
