@@ -75,12 +75,21 @@ class ForecastedTemperaturesController < ApplicationController
 			get_temp(response_hash, location)
 		end
 	end
+
+
 	
 	def show_location_temp
 		@location = Location.friendly.find(params[:location_id])
 		@long = @location.longitude
 		@lat = @location.latitude
         @forecasted_temperatures = @location.forecasted_temperatures
+		if params[:start_date].present? && params[:end_date].present?
+			@start_date = params[:start_date].to_date
+			@end_date = params[:end_date].to_date
+			@forecasted_temperatures = @location.forecasted_temperatures.where(:date_forecasted => @start_date.beginning_of_day..@end_date.end_of_day)
+		else
+			@forecasted_temperatures = @location.forecasted_temperatures
+		end
         render json: @forecasted_temperatures
 	end
 end
