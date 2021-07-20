@@ -6,9 +6,10 @@ Rails.application.routes.draw do
 	resources :forecasted_temperatures
   end
 
+  post '/synchronize' => 'application#get_data'
   get '/:location_id', to: 'forecasted_temperatures#show_location_temp'
 
-  post 'temperatures/synchronize' => 'forecasted_temperatures#get_data'
+  
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
