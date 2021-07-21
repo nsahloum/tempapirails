@@ -23,10 +23,12 @@ example: domain_name/locations?longitude=4.352&latitude=50.85&slug_name=brussels
 
 - List one specific location:
 > GET request on: domain_name/locations/slug_name
+
 example: domain_name/locations/brussels
 
 - List all forecasted temperatures for one location:
 > GET request on: domain_name/slug_name
+
 example: domain_name/brussels
 
 ### 3. Update location:
