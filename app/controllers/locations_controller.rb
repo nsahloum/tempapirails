@@ -37,7 +37,7 @@ class LocationsController < ApplicationController
 		end
 	end
 
-	#checking if the slug_name is url safe
+	# checking if the slug_name is url safe
 	def validate_slug(slug_name)
 		if (slug_name.present? && /^[a-zA-Z0-9_-]*$/.match(slug_name))
 			return true
