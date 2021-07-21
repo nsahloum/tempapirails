@@ -1,4 +1,10 @@
 class ForecastedTemperaturesController < ApplicationController
+
+	def index
+        @forecasted_temperatures = ForecastedTemperature.all 
+		render json: @forecasted_temperatures
+    end 
+
 	def show_location_temp
 		if Location.where(slug: params[:location_id]).exists?
 			@location = Location.friendly.find(params[:location_id])

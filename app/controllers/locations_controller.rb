@@ -18,7 +18,7 @@ class LocationsController < ApplicationController
         render json: @location
     end 
 
-	#create new location (url: /locations?longitude=long&latitude=lat&slug_name=location,  POST)
+	#create new location (url: /locations?longitude=lon&latitude=lat&slug_name=location,  POST)
     def create 
         @location = Location.create(
             longitude: params[:longitude],
@@ -50,10 +50,6 @@ class LocationsController < ApplicationController
     def destroy
         @locations = Location.all 
         @location = Location.friendly.find(params[:id])
-		@forecasted_temperatures = @location.forecasted_temperatures
-		@forecasted_temperatures.each do |fore_temp|
-			fore_temp.destroy
-		end
         @location.destroy
         render json: @locations
     end 
