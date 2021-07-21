@@ -35,7 +35,7 @@ example: domain_name/brussels
 
 example: domain_name/locations/1?longitude=4.352&latitude=50.85&slug_name=brussels
 
-Note:<br>
+**Note:**
 - You can get the id of a location by listing one specific location (see above)
 
 ### 4. Delete location:
