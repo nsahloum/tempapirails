@@ -45,6 +45,8 @@ example: domain_name/locations/1?longitude=4.352&latitude=50.85&slug_name=brusse
 
 > DELETE request on: domain_name/locations/slug_name
 
+example : domain_name/locations/brussels
+
 ## Filter forecasted temperatures by dates:
 (data listed: date, max forecasted, min forecasted)
 ### 1. Between two dates
