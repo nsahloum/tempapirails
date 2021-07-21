@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::API
 
+	#This methods are in this file because they must be accessible from all controlers
+
 	#The method interval_days calculate the number of day the data from 7timer concern
 	#and the frequency of timepoints (when the temperature are taken)
 	def interval_days(data)
