@@ -18,23 +18,15 @@ example: domain_name/locations?longitude=4.352&latitude=50.85&slug_name=brussels
 - when a location is created, the current forecasted temperatures present on 7timer.info are automatically added
 
 ### 2. Read location(s):
-- List all locations:
+- List all locations (data listed: id of the location, latitude, longitude, date of creation, date of last update, name of location (slug))
 > GET request on: domain_name/locations
 
-- List one specific location:
+- List one specific location (data listed: id of the location, latitude, longitude, date of creation, date of last update, name of location (slug))
 > GET request on: domain_name/locations/slug_name
-
-Data listed :
-- id of the location
-- latitude
-- longitude
-- date of creation
-- date of last update
-- name of location (slug)
 
 example: domain_name/locations/brussels
 
-- List all forecasted temperatures for one location:
+- List all forecasted temperatures for one location (data listed: date, max forecasted, min forecasted)
 > GET request on: domain_name/slug_name
 
 example: domain_name/brussels
@@ -53,6 +45,7 @@ example: domain_name/locations/1?longitude=4.352&latitude=50.85&slug_name=brusse
 > DELETE request on: domain_name/slug_name
 
 ## Filter forecasted temperatures by dates:
+(data listed: date, max forecasted, min forecasted)
 ### 1. Between two dates
 > GET request on: domain_name/location?start_date=""&end_date=""<br>
 
