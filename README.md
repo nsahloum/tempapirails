@@ -33,9 +33,11 @@ example: domain_name/brussels
 
 ### 3. Update location:
 
-> PATCH request on: domain_name/locations/id?longitude=4.352&latitude=50.85&slug_name=brussels
+> PATCH request on: domain_name/locations/id?longitude=4.352&latitude=50.85&slug_name=brussels 
+> Or domain_name/locations/slug_name?longitude=4.352&latitude=50.85&slug_name=brussels 
 
-example: domain_name/locations/1?longitude=4.352&latitude=50.85&slug_name=brussels
+example: domain_name/locations/1?longitude=4.352&latitude=50.85&slug_name=brussels<br>
+or domain_name/locations/brussels?longitude=4.352&latitude=50.85&slug_name=brussels
 
 **Note:**
 - You can get the id of a location by listing one specific location (see above)
