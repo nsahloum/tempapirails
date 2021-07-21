@@ -43,16 +43,16 @@ example: domain_name/locations/1?longitude=4.352&latitude=50.85&slug_name=brusse
 > DELETE request on: domain_name/slug_name
 
 ## Filter forecasted temperatures by dates:
-### Between two dates
+### 1. Between two dates
 > GET request on: domain_name/location?start_date=""&end_date=""<br>
 
 date format: YYYY-MM-DD <br>
 example: domain_name/brussels?start_date=2021-07-19&end_date=2021-07-20
 
-### All forecasted temperatures from a start date:
+### 2. All forecasted temperatures from a start date:
 > GET request on: domain_name/location?start_date=""
 
-### All forecasted temperatures before an end date:
+### 3. All forecasted temperatures before an end date:
 > GET request on: domain_name/location?end_date=""
 
 ## Synchronize data from 7Timer API (adding new forecasted temperatures)
