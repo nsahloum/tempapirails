@@ -14829,3 +14829,19 @@ Processing by ApplicationController#get_data as */*
 Completed 200 OK in 42968ms (Views: 0.2ms | ActiveRecord: 77.4ms | Allocations: 235027)
 
 
+Started GET "/london?start_date=2021-07-20&end_date=2021-07-21" for 127.0.0.1 at 2021-07-21 08:10:17 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"start_date"=>"2021-07-20", "end_date"=>"2021-07-21", "location_id"=>"london"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:5:in `show_location_temp'
+  [1m[36mLocation Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "london"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:5:in `show_location_temp'
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "london"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:6:in `show_location_temp'
+  [1m[36mForecastedTemperature Load (1.0ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" BETWEEN ? AND ? ORDER BY "forecasted_temperatures"."id" ASC LIMIT ?[0m  [["location_id", 1], ["date_forecasted", "2021-07-20"], ["date_forecasted", "2021-07-21"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:24:in `show_location_temp'
+  [1m[36mForecastedTemperature Load (1.2ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" BETWEEN ? AND ?[0m  [["location_id", 1], ["date_forecasted", "2021-07-20"], ["date_forecasted", "2021-07-21"]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:27:in `show_location_temp'
+Completed 200 OK in 113ms (Views: 0.7ms | ActiveRecord: 4.9ms | Allocations: 12129)
+
+
