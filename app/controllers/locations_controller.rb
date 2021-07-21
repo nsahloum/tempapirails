@@ -14,7 +14,7 @@ class LocationsController < ApplicationController
 	#Read (one location find by id = slug name of the location, 
 	# example : london, url: /locations/slug, GET)
     def show
-		if Location.where(slug: params[:location_id]).exists?
+		if Location.where(id: params[:id]).exists? || Location.where(slug: params[:id]).exists?
 			@location = Location.friendly.find(params[:id])
 			render json: @location.as_json(
 				only: [:id, :latitude, :longitude, :created_at, :updated_at, :slug]
@@ -73,21 +73,29 @@ class LocationsController < ApplicationController
     end 
 
 	#update an existing location (url: /locations/slug_name, PATCH)
-    def update 
-        @location = Location.find(params[:id])
-        @location.update(
-            latitude: params[:latitude],
-            longitude: params[:longitude],
-            slug_name: params[:slug_name]
-        )
-        render json: @location
+    def update
+		if Location.where(id: params[:id]).exists? || Location.where(slug: params[:id]).exists?
+			@location = Location.friendly.find(params[:id])
+			@location.update(
+				latitude: params[:latitude],
+				longitude: params[:longitude],
+				slug_name: params[:slug_name]
+			)
+			render json: @location
+		else
+			render json: "ERROR:3 : This location doesn't exist"
+		end
     end 
 
 	#delete an existing location (url: /locations/slug_name, DELETE)
     def destroy
-        @locations = Location.all 
-        @location = Location.friendly.find(params[:id])
-        @location.destroy
-        render json: @locations
+		if Location.where(id: params[:id]).exists? || Location.where(slug: params[:id]).exists?
+			@locations = Location.all 
+			@location = Location.friendly.find(params[:id])
+			@location.destroy
+			render json: @locations
+		else
+			render json: "ERROR:3 : This location doesn't exist"
+		end
     end 
 end
