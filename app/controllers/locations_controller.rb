@@ -28,6 +28,7 @@ class LocationsController < ApplicationController
 		end
 	end
 
+	#checking if valide coordinates
 	def validate_coord(latitude, longitude)
 		if (longitude.present? && latitude.present? && longitude.to_f.between?(-180,180) && latitude.to_f.between?(-90,90) && is_integer(latitude) && is_integer(longitude))
 			return true
@@ -36,6 +37,7 @@ class LocationsController < ApplicationController
 		end
 	end
 
+	#checking if the slug_name is url safe
 	def validate_slug(slug_name)
 		if (slug_name.present? && /^[a-zA-Z0-9_-]*$/.match(slug_name))
 			return true
@@ -44,7 +46,6 @@ class LocationsController < ApplicationController
 		end
 	end
 	
-
 	#create new location (url: /locations?longitude=lon&latitude=lat&slug_name=location,  POST)
     #verify that we create a location with all the parameter needed and a valid latitude and longitude
 	def create 

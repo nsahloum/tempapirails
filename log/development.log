@@ -18619,3 +18619,9 @@ Processing by ForecastedTemperaturesController#show_location_temp as */*
 Completed 200 OK in 37ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 5496)
 
 
+Started POST "/locations?slug_name=jdkz%20djkzdkl" for 127.0.0.1 at 2021-07-21 17:23:26 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"slug_name"=>"jdkz djkzdkl"}
+Completed 200 OK in 1ms (Views: 0.2ms | Allocations: 200)
+
+
