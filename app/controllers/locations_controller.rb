@@ -15,13 +15,40 @@ class LocationsController < ApplicationController
 	# example : london, url: /locations/slug, GET)
     def show
         @location = Location.friendly.find(params[:id])
-        render json: @location
+        render json: @location.as_json(
+			only: [:id, :latitude, :longitude, :created_at, :updated_at, :slug]
+		)
     end 
+
+	def is_integer (coord)
+		if coord.to_f.to_s == coord || coord.to_i.to_s == coord
+			return true
+		else
+			return false
+		end
+	end
+
+	def validate_coord(latitude, longitude)
+		if (longitude.present? && latitude.present? && longitude.to_f.between?(-180,180) && latitude.to_f.between?(-90,90) && is_integer(latitude) && is_integer(longitude))
+			return true
+		else 
+			return false
+		end
+	end
+
+	def validate_slug(slug_name)
+		if (slug_name.present? && /^[a-zA-Z0-9_-]*$/.match(slug_name))
+			return true
+		else
+			return false
+		end
+	end
+	
 
 	#create new location (url: /locations?longitude=lon&latitude=lat&slug_name=location,  POST)
     #verify that we create a location with all the parameter needed and a valid latitude and longitude
 	def create 
-		if params[:longitude].present? && params[:latitude].present? && params[:slug_name].present? && params[:longitude].to_i.between?(-180,180) && params[:latitude].to_i.between?(-90,90)
+		if validate_coord(params[:latitude], params[:longitude]) && validate_slug(params[:slug_name])
 			@location = Location.create(
 				longitude: params[:longitude],
 				latitude: params[:latitude],
@@ -40,7 +67,7 @@ class LocationsController < ApplicationController
 		end
     end 
 
-	#update an existing location (url: /locations/slug_name)
+	#update an existing location (url: /locations/slug_name, PATCH)
     def update 
         @location = Location.find(params[:id])
         @location.update(
@@ -51,7 +78,7 @@ class LocationsController < ApplicationController
         render json: @location
     end 
 
-	#delete an existing location (url: /locations/slug_name)
+	#delete an existing location (url: /locations/slug_name, DELETE)
     def destroy
         @locations = Location.all 
         @location = Location.friendly.find(params[:id])

@@ -8,5 +8,5 @@ class ForecastedTemperature < ApplicationRecord
 		  hash["max_forecasted"] = max_forecasted
 		  hash["min_forecasted"] = min_forecasted
 		end
-	  end
+	end
 end
