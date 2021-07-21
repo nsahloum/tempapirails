@@ -19366,3 +19366,75 @@ Processing by ForecastedTemperaturesController#show_location_temp as */*
 Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 1244)
 
 
+Started GET "/djkzlj?end_date=2021-07-17" for 127.0.0.1 at 2021-07-21 18:14:58 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"end_date"=>"2021-07-17", "location_id"=>"djkzlj"}
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "djkzlj"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:16:in `show_location_temp'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 556)
+
+
+Started GET "/djkzlj?end_date=2021-07-90" for 127.0.0.1 at 2021-07-21 18:15:49 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"end_date"=>"2021-07-90", "location_id"=>"djkzlj"}
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "djkzlj"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:16:in `show_location_temp'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 553)
+
+
+Started GET "/brussels?end_date=2021-07-90" for 127.0.0.1 at 2021-07-21 18:15:59 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"end_date"=>"2021-07-90", "location_id"=>"brussels"}
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:16:in `show_location_temp'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:17:in `show_location_temp'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.5ms | Allocations: 1187)
+
+
+  
+Date::Error (invalid date):
+  
+app/controllers/forecasted_temperatures_controller.rb:24:in `show_location_temp'
+Started GET "/brussels?end_date=2021-07-90" for 127.0.0.1 at 2021-07-21 18:16:31 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"end_date"=>"2021-07-90", "location_id"=>"brussels"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:16:in `show_location_temp'
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:16:in `show_location_temp'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:17:in `show_location_temp'
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 2.4ms | Allocations: 7105)
+
+
+Started GET "/dkjejz?end_date=2021-07-90" for 127.0.0.1 at 2021-07-21 18:16:54 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"end_date"=>"2021-07-90", "location_id"=>"dkjejz"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:16:in `show_location_temp'
+  [1m[36mLocation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "dkjejz"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:16:in `show_location_temp'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 3563)
+
+
+Started GET "/dkjejz" for 127.0.0.1 at 2021-07-21 18:17:22 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"location_id"=>"dkjejz"}
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "dkjejz"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:16:in `show_location_temp'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 569)
+
+
+Started GET "/brussels" for 127.0.0.1 at 2021-07-21 18:17:26 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"location_id"=>"brussels"}
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:16:in `show_location_temp'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:17:in `show_location_temp'
+  [1m[36mForecastedTemperature Load (0.2ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ?[0m  [["location_id", 6]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:39:in `!='
+Completed 200 OK in 49ms (Views: 0.4ms | ActiveRecord: 1.6ms | Allocations: 10801)
+
+
