@@ -26,24 +26,23 @@ class ForecastedTemperaturesController < ApplicationController
 				@start_date = params[:start_date].to_date
 				@end_date = params[:end_date].to_date
 				@forecasted_temperatures = @location.forecasted_temperatures.where(:date_forecasted => @start_date..@end_date)
-			elsif params[:start_date].present? && validate_date?(params[:start_date]) #show all the forecasted temperature from start date (if only start_date specified)
+				if @forecasted_temperatures.first == nil
+					render json: "ERROR:4 : No forecasted temperatures saved for this date"
+				end
+			elsif params[:start_date].present? && validate_date?(params[:start_date]) && params[:end_date].present? == false #show all the forecasted temperature from start date (if only start_date specified)
 				@start_date = params[:start_date].to_date
 				@forecasted_temperatures = @location.forecasted_temperatures.where('date_forecasted >= ?', @start_date)
-			elsif params[:end_date].present? && validate_date?(params[:end_date]) #show all the forecasted temperature before end date (if only end_date specified)
+			elsif params[:end_date].present? && validate_date?(params[:end_date]) && params[:start_date].present? == false #show all the forecasted temperature before end date (if only end_date specified)
 				@end_date = params[:end_date].to_date
 				@forecasted_temperatures = @location.forecasted_temperatures.where('date_forecasted <= ?', @end_date)
 			elsif params[:start_date].present? == false && params[:end_date].present? == false
 				@forecasted_temperatures = @location.forecasted_temperatures #if no params, show all the forecasted_temepratures for a location
 			end
-		end
-		if @location == nil #if the location is not in the database
+		else 
 			render json: "ERROR:3 : No forecasted temperatures saved for this location"
-		elsif @forecasted_temperatures.first == nil #if no temperatures are saved for this location
-			render json: "ERROR:4 : No forecasted temperatures saved for this date"
-		else
-			render json: @forecasted_temperatures.as_json(
+		end
+		render json: @forecasted_temperatures.as_json(
 				only: [:date_forecasted, :min_forecasted, :max_forecasted]
 			)
-		end
 	end
 end
