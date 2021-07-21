@@ -41,11 +41,18 @@ Note:<br>
 
 > DELETE request on: domain_name/slug_name
 
-## Get forecasted temperatures for a specific location between two dates :<br>
+## Filter forecasted temperatures by dates:
+### Between two dates
 > GET request on: domain_name/location?start_date=""&end_date=""<br>
 
 date format: YYYY-MM-DD <br>
 example: domain_name/brussels?start_date=2021-07-19&end_date=2021-07-20
+
+### All forecasted temperatures from a start date:
+> GET request on: domain_name/location?start_date=""
+
+### All forecasted temperatures before an end date:
+> GET request on: domain_name/location?end_date=""
 
 ## Synchronize data from 7Timer API (adding new forecasted temperatures)
 
