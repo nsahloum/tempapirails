@@ -39,6 +39,7 @@ example: domain_name/locations/1?longitude=4.352&latitude=50.85&slug_name=brusse
 
 **Note:**
 - You can get the id of a location by listing one specific location (see above)
+- The user must specify the three parameter even if it's not changed
 
 ### 4. Delete location:
 
@@ -109,6 +110,11 @@ ERROR:4 Explanation :
 
 ERROR:5 Explanation:
 - if a user enter a invalid date format, the date must be YYYY-MM-DD
+
+> ERROR:6 : the start date must be before the end date
+
+ERROR:6 Explanation
+- the user must specify a start date that is before the end date
 
 > INFO: Synchronization successfully done
 
