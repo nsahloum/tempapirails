@@ -77,16 +77,23 @@ example: domaine_name/synchronize?location=brussels
 
 > ERROR:1 : This location already exists
 
-ERROR:1 Explanation : if a user try to create a location with a slug_name that already exists
+ERROR:1 Explanation : 
+- if a user try to create a location with a slug_name that already exists
 
 > ERROR:2 : You must specify a valid longitude, latitude and a slug_name
 
-ERROR:2 Explanation : if a user don't specify all the three parameters (longitude, latitude and slug_name) or a user enter a non-valid longitude (must be between -180 and 180) or latitude (must be between -90 and 90)
+ERROR:2 Explanation : 
+- if a user don't specify all the three parameters (longitude, latitude and slug_name) 
+- or a user enter a non-valid longitude (must be between -180 and 180) or latitude (must be between -90 and 90)
 
 > ERROR:3 : No forecasted temperatures saved for this location
 
-ERROR:3 Explanation : if a user ask for location that doesn't have forecasted temperatures (forecasted temperature are added when location is created but maybe if there is no connection with the 7Timer API at this moment we can get this error)
+ERROR:3 Explanation : 
+- if a user ask for location that doesn't have forecasted temperatures 
+- Note : forecasted temperature are added when location is created but maybe if there is no connection with the 7Timer API at this moment we can get this error
 
 > ERROR:4 : No forecasted temperatures saved for this date
 
-ERROR:4 Explanation : if a user ask for forecasted temperatures before the date of creation of the location in the database (impossible to get past forecasted temperature in 7Timer but this API store the data from location's date of creation).
+ERROR:4 Explanation : 
+- if a user ask for forecasted temperatures before the date of creation of the location in the database 
+- because it's impossible to get past forecasted temperature in 7Timer but this API can store the data starting from location's date of creation.
