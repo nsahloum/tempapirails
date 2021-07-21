@@ -20,8 +20,7 @@ class LocationsController < ApplicationController
 				only: [:id, :latitude, :longitude, :created_at, :updated_at, :slug]
 			)
 		else
-			render json: "ERROR:3 : No forecasted temperatures saved for this location or this location is not in the database
-			"
+			render json: "ERROR:3 : This location doesn't exist"
 		end
     end 
 

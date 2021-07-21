@@ -19,8 +19,7 @@ class ForecastedTemperaturesController < ApplicationController
 		end
 
 		if @location == nil
-			render json: "ERROR:3 : No forecasted temperatures saved for this location or this location is not in the database
-			"
+			render json: "ERROR:3 : This location doesn't exist"
 		elsif params[:start_date].present? == false && params[:end_date].present? == false
 			@forecasted_temperatures = @location.forecasted_temperatures
 		elsif ((params[:start_date].present? && valid_date?(params[:start_date]) == false) || (params[:end_date].present? && valid_date?(params[:end_date]) == false))
