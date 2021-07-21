@@ -1,8 +1,7 @@
 class ForecastedTemperaturesController < ApplicationController
 
-	#this method shows forecasted temperature for one location. url GET /slug_name
-
 	require 'date'
+
 	def valid_date?(date)
   		date_format = '%Y-%m-%d'
   		DateTime.strptime(date, date_format)
@@ -10,6 +9,8 @@ class ForecastedTemperaturesController < ApplicationController
 	rescue ArgumentError
  		false
 	end
+
+	#this method shows forecasted temperature for one location. url GET /slug_name
 
 	def show_location_temp
 
