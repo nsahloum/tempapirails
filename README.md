@@ -23,6 +23,13 @@ example: domain_name/locations?longitude=4.352&latitude=50.85&slug_name=brussels
 
 - List one specific location:
 > GET request on: domain_name/locations/slug_name
+Data listed :
+- id of the location
+- latitude
+- longitude
+- date of creation
+- date of last update
+- name of location (slug)
 
 example: domain_name/locations/brussels
 
