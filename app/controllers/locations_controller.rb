@@ -14,10 +14,15 @@ class LocationsController < ApplicationController
 	#Read (one location find by id = slug name of the location, 
 	# example : london, url: /locations/slug, GET)
     def show
-        @location = Location.friendly.find(params[:id])
-        render json: @location.as_json(
-			only: [:id, :latitude, :longitude, :created_at, :updated_at, :slug]
-		)
+		if Location.where(slug: params[:location_id]).exists?
+			@location = Location.friendly.find(params[:id])
+			render json: @location.as_json(
+				only: [:id, :latitude, :longitude, :created_at, :updated_at, :slug]
+			)
+		else
+			render json: "ERROR:3 : No forecasted temperatures saved for this location or this location is not in the database
+			"
+		end
     end 
 
 	def is_integer (coord)
