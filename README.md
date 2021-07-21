@@ -87,4 +87,4 @@ ERROR:3 Explanation : if a user ask for location that doesn't have forecasted te
 
 > ERROR:4 : No forecasted temperatures saved for this date
 
-ERROR:4 Explanation : if a user ask for forecasted temperatures before the date of creation of the location in the database (impossible to get past forecasted temperature in 7Timer but this API store the data from location's date of creation.
+ERROR:4 Explanation : if a user ask for forecasted temperatures before the date of creation of the location in the database (impossible to get past forecasted temperature in 7Timer but this API store the data from location's date of creation).
