@@ -15,6 +15,7 @@ example: domain_name/locations?longitude=4.352&latitude=50.85&slug_name=brussels
 <br>**Notes:** 
 - the precision of longitude and latitude is 0.001
 - slug_name: name for the location that’s URL-safe
+- when a location is created, the current forecasted temperatures on 7timer.info are automatically added
 
 ### 2. Read location(s):
 - List all locations:
