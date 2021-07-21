@@ -25,7 +25,7 @@ class LocationsController < ApplicationController
 			latitude: params[:latitude],
             slug_name: params[:slug_name]
         )
-		#find_data(@location)
+		find_data(@location)
 		if @location.id != nil
         	render json: @location.forecasted_temperatures.as_json(
 				only: [:date_forecasted, :min_forecasted, :max_forecasted]
