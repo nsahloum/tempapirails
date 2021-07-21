@@ -91,6 +91,7 @@ ERROR:2 Explanation :
 - if a user don't specify all the three parameters (longitude, latitude and slug_name) 
 - or a user enter a non-valid longitude (must be between -180 and 180) or latitude (must be between -90 and 90)
 - or longitude and latitude are not float
+- or a no URL safe slug_name
 
 > ERROR:3 : No forecasted temperatures saved for this location
 
