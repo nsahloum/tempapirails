@@ -24,10 +24,10 @@ class ForecastedTemperaturesController < ApplicationController
 			@forecasted_temperatures = @location.forecasted_temperatures
 		elsif ((params[:start_date].present? && valid_date?(params[:start_date]) == false) || (params[:end_date].present? && valid_date?(params[:end_date]) == false))
 			render json: "ERROR:5 : Not valid date format (date format must be YYYY-MM-DD)"
-		elsif params[:end_date].present? && params[:end_date].to_date < @location.created_at.to_date
-			render json: "ERROR:4 : No forecasted temperatures saved for this date"
 		elsif (params[:start_date].present? && params[:end_date].present? && params[:start_date] > params[:end_date])
 			render json: "ERROR:6 : the start date must be before the end date"
+		elsif params[:end_date].present? && params[:end_date].to_date < @location.created_at.to_date
+			render json: "ERROR:4 : No forecasted temperatures saved for this date"
 		elsif (params[:start_date].present? && params[:end_date].present?)
 			@start_date = params[:start_date].to_date
 			@end_date = params[:end_date].to_date
