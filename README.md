@@ -55,8 +55,12 @@ example: domain_name/brussels?start_date=2021-07-19&end_date=2021-07-20
 ### 2. All forecasted temperatures from a start date:
 > GET request on: domain_name/location?start_date=""
 
+example: domain_name/brussels?start_date=2021-07-19
+
 ### 3. All forecasted temperatures before an end date:
 > GET request on: domain_name/location?end_date=""
+
+example: domain_name/brussels?end_date=2021-07-20
 
 ## Synchronize data from 7Timer API (adding new forecasted temperatures)
 
