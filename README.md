@@ -96,11 +96,10 @@ ERROR:2 Explanation :
 - or longitude and latitude are not float
 - or a no URL safe slug_name
 
-> ERROR:3 : No forecasted temperatures saved for this location or this location is not in the database
+> ERROR:3 : This location doesn't exist
 
 ERROR:3 Explanation : 
-- if a user ask for location that doesn't have forecasted temperatures 
-- Note : forecasted temperature are added when location is created but maybe if there is no connection with the 7Timer API at this moment we can get this error
+- if a user ask for location that is not yet in the database
 
 > ERROR:4 : No forecasted temperatures saved for this date
 
