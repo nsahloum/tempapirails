@@ -96,7 +96,7 @@ ERROR:2 Explanation :
 - or longitude and latitude are not float
 - or a no URL safe slug_name
 
-> ERROR:3 : No forecasted temperatures saved for this location
+> ERROR:3 : No forecasted temperatures saved for this location or this location is not in the database
 
 ERROR:3 Explanation : 
 - if a user ask for location that doesn't have forecasted temperatures 
