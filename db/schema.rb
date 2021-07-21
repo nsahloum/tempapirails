@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_12_191528) do
+ActiveRecord::Schema.define(version: 2021_07_21_050656) do
 
   create_table "forecasted_temperatures", force: :cascade do |t|
     t.date "date_forecasted"
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 2021_07_12_191528) do
   end
 
   create_table "locations", force: :cascade do |t|
-    t.string "latitude"
-    t.string "longitude"
+    t.float "latitude"
+    t.float "longitude"
     t.string "slug_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

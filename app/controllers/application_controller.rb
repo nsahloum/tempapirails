@@ -67,6 +67,7 @@ class ApplicationController < ActionController::API
 				find_data(location)
 			end
 		end
+		render json: "Synchronization successfully done"
 	end
 
 	#The method find_data collect data from 7timer

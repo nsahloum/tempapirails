@@ -19,19 +19,24 @@ class LocationsController < ApplicationController
     end 
 
 	#create new location (url: /locations?longitude=lon&latitude=lat&slug_name=location,  POST)
-    def create 
-        @location = Location.create(
-            longitude: params[:longitude],
-			latitude: params[:latitude],
-            slug_name: params[:slug_name]
-        )
-		find_data(@location) #when creating a location we need to directly get the forecasted temperature from 7timer see application_controller.rb
-		if @location.id != nil
-        	render json: @location.forecasted_temperatures.as_json(
-				only: [:date_forecasted, :min_forecasted, :max_forecasted]
+    #verify that we create a location with all the parameter needed and a valid latitude and longitude
+	def create 
+		if params[:longitude].present? && params[:latitude].present? && params[:slug_name].present? && params[:longitude].to_i.between?(-180,180) && params[:latitude].to_i.between?(-90,90)
+			@location = Location.create(
+				longitude: params[:longitude],
+				latitude: params[:latitude],
+				slug_name: params[:slug_name]
 			)
-		elsif @location.id == nil #there is uniqueness in the slug_name so if id == nil, that means that the location hasn't been created because it already exists
-			render json: "ERROR : This location already exists"
+			find_data(@location) #when creating a location we need to directly get the forecasted temperature from 7timer see application_controller.rb
+			if @location.id != nil
+				render json: @location.forecasted_temperatures.as_json(
+					only: [:date_forecasted, :min_forecasted, :max_forecasted]
+				)
+			elsif @location.id == nil #there is uniqueness for the slug_name so if id == nil, that means that the location hasn't been created because it already exists
+				render json: "ERROR: This location already exists"
+			end
+		else
+			render json: "ERROR: You must specify a valid longitude, latitude and a slug_name"
 		end
     end 
 
