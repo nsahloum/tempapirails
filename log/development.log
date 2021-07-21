@@ -8763,3 +8763,40 @@ Processing by ForecastedTemperaturesController#show_location_temp as */*
 Completed 200 OK in 38ms (Views: 3.0ms | ActiveRecord: 2.7ms | Allocations: 3673)
 
 
+Started GET "/locations" for 127.0.0.1 at 2021-07-21 05:43:24 +0200
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (0.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:11:in `index'
+Completed 200 OK in 58ms (Views: 25.7ms | ActiveRecord: 1.7ms | Allocations: 11634)
+
+
+Started GET "/ottawa" for 127.0.0.1 at 2021-07-21 05:44:11 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"location_id"=>"ottawa"}
+  [1m[36mLocation Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "ottawa"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:5:in `show_location_temp'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "ottawa"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:6:in `show_location_temp'
+  [1m[36mForecastedTemperature Load (1.5ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? ORDER BY "forecasted_temperatures"."id" ASC LIMIT ?[0m  [["location_id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:24:in `show_location_temp'
+  [1m[36mForecastedTemperature Load (0.6ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ?[0m  [["location_id", 11]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:27:in `show_location_temp'
+Completed 200 OK in 83ms (Views: 0.3ms | ActiveRecord: 4.1ms | Allocations: 11395)
+
+
+Started GET "/london" for 127.0.0.1 at 2021-07-21 05:44:23 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"location_id"=>"london"}
+  [1m[36mLocation Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "london"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:5:in `show_location_temp'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "london"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:6:in `show_location_temp'
+  [1m[36mForecastedTemperature Load (1.1ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? ORDER BY "forecasted_temperatures"."id" ASC LIMIT ?[0m  [["location_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:24:in `show_location_temp'
+  [1m[36mForecastedTemperature Load (0.2ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ?[0m  [["location_id", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:27:in `show_location_temp'
+Completed 200 OK in 14ms (Views: 0.5ms | ActiveRecord: 2.5ms | Allocations: 2847)
+
+

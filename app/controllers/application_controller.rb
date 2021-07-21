@@ -58,7 +58,7 @@ class ApplicationController < ActionController::API
 	end
 
 	def get_data
-		if params[:location].present? #with this condition we can synchronize and add new forecasted temperatures only one location, url: POST /synchronize?location=slug_name
+		if params[:location].present? #with this condition we can synchronize only one location, url: POST /synchronize?location=slug_name
 			@location = Location.friendly.find(params[:location])
 			find_data(@location)
 		else #here we can synchronize all the locations, url: POST /synchronize

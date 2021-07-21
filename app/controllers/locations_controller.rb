@@ -30,7 +30,7 @@ class LocationsController < ApplicationController
         	render json: @location.forecasted_temperatures.as_json(
 				only: [:date_forecasted, :min_forecasted, :max_forecasted]
 			)
-		elsif @location.id == nil
+		elsif @location.id == nil #there is uniqueness in the slug_name so if id == nil, that means that the location hasn't been created because it already exists
 			render json: "ERROR : This location already exists"
 		end
     end 
