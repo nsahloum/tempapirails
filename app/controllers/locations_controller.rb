@@ -25,7 +25,7 @@ class LocationsController < ApplicationController
 			latitude: params[:latitude],
             slug_name: params[:slug_name]
         )
-		find_data(@location)
+		find_data(@location) #when creating a location we need to directly get the forecasted temperature from 7timer see application_controller.rb
 		if @location.id != nil
         	render json: @location.forecasted_temperatures.as_json(
 				only: [:date_forecasted, :min_forecasted, :max_forecasted]
