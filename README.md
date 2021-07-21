@@ -73,7 +73,7 @@ example: domain_name/brussels?start_date=2021-07-19&end_date=2021-07-20
 
 example: domaine_name/synchronize?location=brussels
 
-## Errors handeling
+## Errors and info handeling
 
 > ERROR:1 : This location already exists
 
@@ -97,3 +97,8 @@ ERROR:3 Explanation :
 ERROR:4 Explanation : 
 - if a user ask for forecasted temperatures before the date of creation of the location in the database 
 - because it's impossible to get past forecasted temperature in 7Timer but this API can store the data starting from location's date of creation.
+
+> INFO: Synchronization successfully done
+
+Explanation : when the synchronization of one location or all locations is done
+
