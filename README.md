@@ -83,7 +83,7 @@ ERROR:2 Explanation : if a user don't specify all the three parameters (longitud
 
 > ERROR:3 : No forecasted temperatures saved for this location
 
-ERROR:3 Explanation : if a user ask for location that doesn't have forecasted temperatures (forecasted temperature are added when location is created but maybe if there no connection with the 7Timer API)
+ERROR:3 Explanation : if a user ask for location that doesn't have forecasted temperatures (forecasted temperature are added when location is created but maybe if there is no connection with the 7Timer API at this moment we can get this error)
 
 > ERROR:4 : No forecasted temperatures saved for this date
 
