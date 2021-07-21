@@ -8338,3 +8338,428 @@ Processing by ForecastedTemperaturesController#index as */*
 Completed 200 OK in 19ms (Views: 18.6ms | ActiveRecord: 0.3ms | Allocations: 6050)
 
 
+Started POST "/locations?longitude=3.717&latitude=51.054&slug_name=gand" for 127.0.0.1 at 2021-07-21 04:38:23 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"longitude"=>"3.717", "latitude"=>"51.054", "slug_name"=>"gand"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mLocation Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" IS NOT NULL AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "gand"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "gand"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mLocation Create (1.6ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "slug_name", "created_at", "updated_at", "slug") VALUES (?, ?, ?, ?, ?, ?)[0m  [["latitude", "51.054"], ["longitude", "3.717"], ["slug_name", "gand"], ["created_at", "2021-07-21 02:38:23.970851"], ["updated_at", "2021-07-21 02:38:23.970851"], ["slug", "gand"]]
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 17], ["date_forecasted", "2021-07-20"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (0.6ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-20"], ["min_forecasted", 15], ["max_forecasted", 15], ["created_at", "2021-07-21 02:38:25.519904"], ["updated_at", "2021-07-21 02:38:25.519904"], ["location_id", 17]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 17], ["date_forecasted", "2021-07-21"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (1.0ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-21"], ["min_forecasted", 13], ["max_forecasted", 25], ["created_at", "2021-07-21 02:38:25.534905"], ["updated_at", "2021-07-21 02:38:25.534905"], ["location_id", 17]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 17], ["date_forecasted", "2021-07-22"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (2.9ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-22"], ["min_forecasted", 13], ["max_forecasted", 23], ["created_at", "2021-07-21 02:38:25.547202"], ["updated_at", "2021-07-21 02:38:25.547202"], ["location_id", 17]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mLocation Load (1.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 17], ["date_forecasted", "2021-07-23"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (0.4ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-23"], ["min_forecasted", 12], ["max_forecasted", 24], ["created_at", "2021-07-21 02:38:25.572162"], ["updated_at", "2021-07-21 02:38:25.572162"], ["location_id", 17]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Load (0.6ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ?[0m  [["location_id", 17]]
+  ↳ app/controllers/locations_controller.rb:30:in `create'
+Completed 200 OK in 1673ms (Views: 0.4ms | ActiveRecord: 20.7ms | Allocations: 66187)
+
+
+Started POST "/locations" for 127.0.0.1 at 2021-07-21 04:38:50 +0200
+Processing by LocationsController#create as */*
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mLocation Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mLocation Create (0.5ms)[0m  [1m[32mINSERT INTO "locations" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2021-07-21 02:38:50.714464"], ["updated_at", "2021-07-21 02:38:50.714464"]]
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (10.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+Completed 500 Internal Server Error in 355ms (ActiveRecord: 11.4ms | Allocations: 3388)
+
+
+  
+JSON::ParserError (809: unexpected token at 'ERR: no geographic location specified'):
+  
+app/controllers/application_controller.rb:75:in `find_data'
+app/controllers/locations_controller.rb:28:in `create'
+Started GET "/locations" for 127.0.0.1 at 2021-07-21 04:38:56 +0200
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:11:in `index'
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.2ms | Allocations: 2239)
+
+
+Started DELETE "/locations/18" for 127.0.0.1 at 2021-07-21 04:39:27 +0200
+Processing by LocationsController#destroy as */*
+  Parameters: {"id"=>"18"}
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "18"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:52:in `destroy'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:53:in `destroy'
+  [1m[36mForecastedTemperature Load (0.3ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ?[0m  [["location_id", 18]]
+  ↳ app/controllers/locations_controller.rb:53:in `destroy'
+  [1m[36mLocation Destroy (0.5ms)[0m  [1m[31mDELETE FROM "locations" WHERE "locations"."id" = ?[0m  [["id", 18]]
+  ↳ app/controllers/locations_controller.rb:53:in `destroy'
+  [1m[36mTRANSACTION (11.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:53:in `destroy'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:54:in `destroy'
+Completed 200 OK in 33ms (Views: 3.9ms | ActiveRecord: 14.2ms | Allocations: 5379)
+
+
+Started POST "/locations?longitude=-6.26&latitude=53.35&slug_name=dublin" for 127.0.0.1 at 2021-07-21 04:40:22 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"longitude"=>"-6.26", "latitude"=>"53.35", "slug_name"=>"dublin"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mLocation Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" IS NOT NULL AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "dublin"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mLocation Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "dublin"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mLocation Create (0.7ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "slug_name", "created_at", "updated_at", "slug") VALUES (?, ?, ?, ?, ?, ?)[0m  [["latitude", "53.35"], ["longitude", "-6.26"], ["slug_name", "dublin"], ["created_at", "2021-07-21 02:40:22.302280"], ["updated_at", "2021-07-21 02:40:22.302280"], ["slug", "dublin"]]
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 19], ["date_forecasted", "2021-07-20"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (0.4ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-20"], ["min_forecasted", 16], ["max_forecasted", 16], ["created_at", "2021-07-21 02:40:25.006669"], ["updated_at", "2021-07-21 02:40:25.006669"], ["location_id", 19]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 19], ["date_forecasted", "2021-07-21"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (1.3ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-21"], ["min_forecasted", 14], ["max_forecasted", 25], ["created_at", "2021-07-21 02:40:25.018141"], ["updated_at", "2021-07-21 02:40:25.018141"], ["location_id", 19]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 19], ["date_forecasted", "2021-07-22"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (0.4ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-22"], ["min_forecasted", 14], ["max_forecasted", 24], ["created_at", "2021-07-21 02:40:25.027494"], ["updated_at", "2021-07-21 02:40:25.027494"], ["location_id", 19]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 19], ["date_forecasted", "2021-07-23"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (0.4ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-23"], ["min_forecasted", 15], ["max_forecasted", 23], ["created_at", "2021-07-21 02:40:25.040863"], ["updated_at", "2021-07-21 02:40:25.040863"], ["location_id", 19]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Load (0.2ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ?[0m  [["location_id", 19]]
+  ↳ app/controllers/locations_controller.rb:30:in `create'
+Completed 200 OK in 2755ms (Views: 0.3ms | ActiveRecord: 13.3ms | Allocations: 24901)
+
+
+Started POST "/locations" for 127.0.0.1 at 2021-07-21 04:41:53 +0200
+Processing by LocationsController#create as */*
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mLocation Create (0.5ms)[0m  [1m[32mINSERT INTO "locations" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2021-07-21 02:41:53.047614"], ["updated_at", "2021-07-21 02:41:53.047614"]]
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+Completed 500 Internal Server Error in 359ms (ActiveRecord: 4.4ms | Allocations: 6983)
+
+
+  
+JSON::ParserError (809: unexpected token at 'ERR: no geographic location specified'):
+  
+app/controllers/application_controller.rb:75:in `find_data'
+app/controllers/locations_controller.rb:28:in `create'
+Started GET "/locations" for 127.0.0.1 at 2021-07-21 04:41:59 +0200
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:11:in `index'
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.2ms | Allocations: 2319)
+
+
+Started DELETE "/locations/20" for 127.0.0.1 at 2021-07-21 04:44:39 +0200
+Processing by LocationsController#destroy as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "20"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:52:in `destroy'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:53:in `destroy'
+  [1m[36mForecastedTemperature Load (0.1ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ?[0m  [["location_id", 20]]
+  ↳ app/controllers/locations_controller.rb:53:in `destroy'
+  [1m[36mLocation Destroy (0.9ms)[0m  [1m[31mDELETE FROM "locations" WHERE "locations"."id" = ?[0m  [["id", 20]]
+  ↳ app/controllers/locations_controller.rb:53:in `destroy'
+  [1m[36mTRANSACTION (60.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:53:in `destroy'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:54:in `destroy'
+Completed 200 OK in 71ms (Views: 2.4ms | ActiveRecord: 62.2ms | Allocations: 5420)
+
+
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" IS NOT NULL AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "london"], ["LIMIT", 1]]
+  [1m[36mLocation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "london"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" IS NOT NULL AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "new-york"], ["LIMIT", 1]]
+  [1m[36mLocation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "new-york"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" IS NOT NULL AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "tirana"], ["LIMIT", 1]]
+  [1m[36mLocation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "tirana"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" IS NOT NULL AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  [1m[36mLocation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "brussels"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" IS NOT NULL AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "monaco"], ["LIMIT", 1]]
+  [1m[36mLocation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "monaco"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" IS NOT NULL AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "roma"], ["LIMIT", 1]]
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "roma"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+Started DELETE "/locations/" for 127.0.0.1 at 2021-07-21 04:45:05 +0200
+  
+ActionController::RoutingError (No route matches [DELETE] "/locations"):
+  
+Started GET "/locations/" for 127.0.0.1 at 2021-07-21 04:45:11 +0200
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:11:in `index'
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.2ms | Allocations: 2208)
+
+
+Started GET "/locations?longitude=123&latitude=123&slug_name=test" for 127.0.0.1 at 2021-07-21 04:46:11 +0200
+Processing by LocationsController#index as */*
+  Parameters: {"longitude"=>"123", "latitude"=>"123", "slug_name"=>"test"}
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:11:in `index'
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.5ms | Allocations: 2209)
+
+
+Started POST "/locations?longitude=123&latitude=123&slug_name=test" for 127.0.0.1 at 2021-07-21 04:46:22 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"longitude"=>"123", "latitude"=>"123", "slug_name"=>"test"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" IS NOT NULL AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mLocation Create (1.0ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "slug_name", "created_at", "updated_at", "slug") VALUES (?, ?, ?, ?, ?, ?)[0m  [["latitude", "123"], ["longitude", "123"], ["slug_name", "test"], ["created_at", "2021-07-21 02:46:22.321221"], ["updated_at", "2021-07-21 02:46:22.321221"], ["slug", "test"]]
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (9.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+Completed 500 Internal Server Error in 442ms (ActiveRecord: 10.5ms | Allocations: 8008)
+
+
+  
+JSON::ParserError (809: unexpected token at 'ERR: invalid coordinate'):
+  
+app/controllers/application_controller.rb:75:in `find_data'
+app/controllers/locations_controller.rb:28:in `create'
+Started POST "/locations?longitude=123&latitude=123&slug_name=test" for 127.0.0.1 at 2021-07-21 04:54:43 +0200
+  
+SyntaxError (/Users/najimasahloumi/Desktop/AppTweak/apirails/app/controllers/application_controller.rb:81: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/application_controller.rb:81: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/application_controller.rb:81: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/locations_controller.rb:1:in `<main>'
+Started POST "/locations?longitude=123&latitude=123&slug_name=test" for 127.0.0.1 at 2021-07-21 04:54:57 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"longitude"=>"123", "latitude"=>"123", "slug_name"=>"test"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" IS NOT NULL AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+Completed 500 Internal Server Error in 377ms (ActiveRecord: 1.1ms | Allocations: 9231)
+
+
+  
+JSON::ParserError (809: unexpected token at 'ERR: invalid coordinate'):
+  
+app/controllers/application_controller.rb:75:in `find_data'
+app/controllers/locations_controller.rb:28:in `create'
+Started POST "/locations?longitude=123&latitude=123&slug_name=test" for 127.0.0.1 at 2021-07-21 04:55:23 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"longitude"=>"123", "latitude"=>"123", "slug_name"=>"test"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" IS NOT NULL AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+Completed 500 Internal Server Error in 358ms (ActiveRecord: 2.6ms | Allocations: 9553)
+
+
+  
+JSON::ParserError (809: unexpected token at 'ERR: invalid coordinate'):
+  
+app/controllers/application_controller.rb:75:in `find_data'
+app/controllers/locations_controller.rb:28:in `create'
+Started POST "/locations?longitude=123&latitude=123&slug_name=test" for 127.0.0.1 at 2021-07-21 04:55:36 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"longitude"=>"123", "latitude"=>"123", "slug_name"=>"test"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" IS NOT NULL AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mLocation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+Completed 500 Internal Server Error in 395ms (ActiveRecord: 2.9ms | Allocations: 9554)
+
+
+  
+JSON::ParserError (809: unexpected token at 'ERR: invalid coordinate'):
+  
+app/controllers/application_controller.rb:75:in `find_data'
+app/controllers/locations_controller.rb:28:in `create'
+Started POST "/locations?longitude=7.262&latitude=43.71&slug_name=nice" for 127.0.0.1 at 2021-07-21 04:58:22 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"longitude"=>"7.262", "latitude"=>"43.71", "slug_name"=>"nice"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" IS NOT NULL AND "locations"."slug" = ? LIMIT ?[0m  [["slug", "nice"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mLocation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "nice"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mLocation Create (1.7ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "slug_name", "created_at", "updated_at", "slug") VALUES (?, ?, ?, ?, ?, ?)[0m  [["latitude", "43.71"], ["longitude", "7.262"], ["slug_name", "nice"], ["created_at", "2021-07-21 02:58:22.963685"], ["updated_at", "2021-07-21 02:58:22.963685"], ["slug", "nice"]]
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 22], ["date_forecasted", "2021-07-20"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (0.5ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-20"], ["min_forecasted", 20], ["max_forecasted", 20], ["created_at", "2021-07-21 02:58:24.406343"], ["updated_at", "2021-07-21 02:58:24.406343"], ["location_id", 22]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 22], ["date_forecasted", "2021-07-21"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (1.4ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-21"], ["min_forecasted", 18], ["max_forecasted", 26], ["created_at", "2021-07-21 02:58:24.415986"], ["updated_at", "2021-07-21 02:58:24.415986"], ["location_id", 22]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 22], ["date_forecasted", "2021-07-22"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (0.7ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-22"], ["min_forecasted", 18], ["max_forecasted", 27], ["created_at", "2021-07-21 02:58:24.430512"], ["updated_at", "2021-07-21 02:58:24.430512"], ["location_id", 22]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 22], ["date_forecasted", "2021-07-23"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (2.1ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-23"], ["min_forecasted", 18], ["max_forecasted", 27], ["created_at", "2021-07-21 02:58:24.445146"], ["updated_at", "2021-07-21 02:58:24.445146"], ["location_id", 22]]
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:22:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Load (0.3ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ?[0m  [["location_id", 22]]
+  ↳ app/controllers/locations_controller.rb:30:in `create'
+Completed 200 OK in 1522ms (Views: 0.3ms | ActiveRecord: 22.3ms | Allocations: 35888)
+
+
+Started POST "/nice" for 127.0.0.1 at 2021-07-21 04:58:38 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/nice"):
+  
+Started GET "/nice" for 127.0.0.1 at 2021-07-21 04:58:43 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"location_id"=>"nice"}
+  [1m[36mLocation Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "nice"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:9:in `show_location_temp'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "nice"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:10:in `show_location_temp'
+  [1m[36mForecastedTemperature Load (0.4ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? ORDER BY "forecasted_temperatures"."id" ASC LIMIT ?[0m  [["location_id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:14:in `show_location_temp'
+  [1m[36mCACHE ForecastedTemperature Load (0.2ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? ORDER BY "forecasted_temperatures"."id" ASC LIMIT ?[0m  [["location_id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:31:in `show_location_temp'
+  [1m[36mForecastedTemperature Load (0.8ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ?[0m  [["location_id", 22]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:34:in `show_location_temp'
+Completed 200 OK in 38ms (Views: 3.0ms | ActiveRecord: 2.7ms | Allocations: 3673)
+
+

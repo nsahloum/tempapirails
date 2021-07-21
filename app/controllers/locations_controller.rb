@@ -31,7 +31,7 @@ class LocationsController < ApplicationController
 				only: [:date_forecasted, :min_forecasted, :max_forecasted]
 			)
 		elsif @location.id == nil
-			render json: "This location already exists"
+			render json: "ERROR : This location already exists"
 		end
     end 
 
