@@ -20379,3 +20379,45 @@ Processing by LocationsController#create as */*
 Completed 200 OK in 2224ms (Views: 0.2ms | ActiveRecord: 31.4ms | Allocations: 24586)
 
 
+Started GET "/haolmik?start_date=2021-07-19&end_date=2021-07-21" for 127.0.0.1 at 2021-07-21 21:53:09 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"start_date"=>"2021-07-19", "end_date"=>"2021-07-21", "location_id"=>"haolmik"}
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "haolmik"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:17:in `show_location_temp'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "haolmik"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:18:in `show_location_temp'
+  [1m[36mForecastedTemperature Load (0.4ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" BETWEEN ? AND ?[0m  [["location_id", 54], ["date_forecasted", "2021-07-19"], ["date_forecasted", "2021-07-21"]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:42:in `!='
+Completed 200 OK in 36ms (Views: 0.4ms | ActiveRecord: 1.1ms | Allocations: 2348)
+
+
+Started GET "/haolmik?start_date=2021-07-21&end_date=2021-07-19" for 127.0.0.1 at 2021-07-21 21:53:30 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"start_date"=>"2021-07-21", "end_date"=>"2021-07-19", "location_id"=>"haolmik"}
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "haolmik"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:17:in `show_location_temp'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "haolmik"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:18:in `show_location_temp'
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 1189)
+
+
+Started GET "/haolmik?start_date=2021-07-21&end_date=2021-07-18" for 127.0.0.1 at 2021-07-21 21:53:59 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"start_date"=>"2021-07-21", "end_date"=>"2021-07-18", "location_id"=>"haolmik"}
+  [1m[36mLocation Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "haolmik"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:17:in `show_location_temp'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "haolmik"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:18:in `show_location_temp'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 1188)
+
+
+Started GET "/haolmik?start_date=2021-07-24&end_date=2021-07-21" for 127.0.0.1 at 2021-07-21 21:55:04 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"start_date"=>"2021-07-24", "end_date"=>"2021-07-21", "location_id"=>"haolmik"}
+  [1m[36mLocation Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "haolmik"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:17:in `show_location_temp'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "haolmik"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:18:in `show_location_temp'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 1189)
+
+
