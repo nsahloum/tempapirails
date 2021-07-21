@@ -104,6 +104,11 @@ ERROR:4 Explanation :
 - if a user ask for forecasted temperatures before the date of creation of the location in the database 
 - because it's impossible to get past forecasted temperature in 7Timer but this API can store the data starting from location's date of creation.
 
+> ERROR:5 : Not valid date format (date format must be YYYY-MM-DD)
+
+ERROR:5 Explanation:
+- if a user enter a invalid date format, the date must be YYYY-MM-DD
+
 > INFO: Synchronization successfully done
 
 Explanation : when the synchronization of one location or all locations is done
