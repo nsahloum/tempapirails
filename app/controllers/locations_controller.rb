@@ -33,10 +33,10 @@ class LocationsController < ApplicationController
 					only: [:date_forecasted, :min_forecasted, :max_forecasted]
 				)
 			elsif @location.id == nil #there is uniqueness for the slug_name so if id == nil, that means that the location hasn't been created because it already exists
-				render json: "ERROR: This location already exists"
+				render json: "ERROR:1 : This location already exists"
 			end
 		else
-			render json: "ERROR: You must specify a valid longitude, latitude and a slug_name"
+			render json: "ERROR:2 : You must specify a valid longitude, latitude and a slug_name"
 		end
     end 
 

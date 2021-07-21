@@ -14845,3 +14845,17 @@ Processing by ForecastedTemperaturesController#show_location_temp as */*
 Completed 200 OK in 113ms (Views: 0.7ms | ActiveRecord: 4.9ms | Allocations: 12129)
 
 
+Started GET "/london?end_date=2021-07-02" for 127.0.0.1 at 2021-07-21 08:35:46 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"end_date"=>"2021-07-02", "location_id"=>"london"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:5:in `show_location_temp'
+  [1m[36mLocation Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "london"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:5:in `show_location_temp'
+  [1m[36mLocation Load (1.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "london"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:6:in `show_location_temp'
+  [1m[36mForecastedTemperature Load (1.2ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND (date_forecasted <= '2021-07-02') ORDER BY "forecasted_temperatures"."id" ASC LIMIT ?[0m  [["location_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:24:in `show_location_temp'
+Completed 200 OK in 61ms (Views: 0.5ms | ActiveRecord: 5.7ms | Allocations: 8576)
+
+

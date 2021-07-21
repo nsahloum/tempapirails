@@ -20,9 +20,9 @@ class ForecastedTemperaturesController < ApplicationController
 			end
 		end
 		if @location == nil #if the location is not in the database
-			render json: "ERROR : No forecasted temperatures saved for this location"
+			render json: "ERROR:3 : No forecasted temperatures saved for this location"
 		elsif @forecasted_temperatures.first == nil #if no temperatures are saved for this location
-			render json: "ERROR : No forecasted temperatures saved for this date"
+			render json: "ERROR:4 : No forecasted temperatures saved for this date"
 		else
 			render json: @forecasted_temperatures.as_json(
 				only: [:date_forecasted, :min_forecasted, :max_forecasted]
