@@ -24384,3 +24384,214 @@ Processing by ForecastedTemperaturesController#show_location_temp as */*
 Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 2.4ms | Allocations: 2618)
 
 
+Started PATCH "/juice?latitude" for 127.0.0.1 at 2021-07-22 06:30:37 +0200
+  
+ActionController::RoutingError (No route matches [PATCH] "/juice"):
+  
+Started PATCH "/location/juice" for 127.0.0.1 at 2021-07-22 06:30:55 +0200
+  
+ActionController::RoutingError (No route matches [PATCH] "/location/juice"):
+  
+Started PATCH "/locations/juice" for 127.0.0.1 at 2021-07-22 06:31:02 +0200
+Processing by LocationsController#update as */*
+  Parameters: {"id"=>"juice"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "juice"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Load (1.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "juice"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:78:in `update'
+Completed 200 OK in 43ms (Views: 0.1ms | ActiveRecord: 2.6ms | Allocations: 7112)
+
+
+Started PATCH "/locations/juice?latitude=30" for 127.0.0.1 at 2021-07-22 06:31:10 +0200
+Processing by LocationsController#update as */*
+  Parameters: {"latitude"=>"30", "id"=>"juice"}
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "juice"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "juice"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:78:in `update'
+Completed 200 OK in 21ms (Views: 0.8ms | ActiveRecord: 0.8ms | Allocations: 1632)
+
+
+Started PATCH "/locations/juice?latitude=30&longitude=200&slug_name=hdjz%20djzj" for 127.0.0.1 at 2021-07-22 06:31:28 +0200
+Processing by LocationsController#update as */*
+  Parameters: {"latitude"=>"30", "longitude"=>"200", "slug_name"=>"hdjz djzj", "id"=>"juice"}
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "juice"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Load (0.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "juice"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:78:in `update'
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 1.4ms | Allocations: 1615)
+
+
+Started PATCH "/locations/juice?latitude=30&longitude=30&slug_name=hdjz%20djzj" for 127.0.0.1 at 2021-07-22 06:31:34 +0200
+Processing by LocationsController#update as */*
+  Parameters: {"latitude"=>"30", "longitude"=>"30", "slug_name"=>"hdjz djzj", "id"=>"juice"}
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "juice"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "juice"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:78:in `update'
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 2.2ms | Allocations: 1622)
+
+
+Started PATCH "/locations/juice?latitude=30&longitude=30&slug_name=hdjzdjzj" for 127.0.0.1 at 2021-07-22 06:31:39 +0200
+Processing by LocationsController#update as */*
+  Parameters: {"latitude"=>"30", "longitude"=>"30", "slug_name"=>"hdjzdjzj", "id"=>"juice"}
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "juice"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "juice"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:78:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:80:in `update'
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? AND "locations"."id" != ? LIMIT ?[0m  [["slug_name", "hdjzdjzj"], ["id", 57], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:80:in `update'
+  [1m[36mLocation Update (3.2ms)[0m  [1m[33mUPDATE "locations" SET "latitude" = ?, "longitude" = ?, "slug_name" = ?, "updated_at" = ? WHERE "locations"."id" = ?[0m  [["latitude", 30.0], ["longitude", 30.0], ["slug_name", "hdjzdjzj"], ["updated_at", "2021-07-22 04:31:39.041100"], ["id", 57]]
+  ↳ app/controllers/locations_controller.rb:80:in `update'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:80:in `update'
+Completed 200 OK in 51ms (Views: 0.9ms | ActiveRecord: 6.3ms | Allocations: 4676)
+
+
+Started PATCH "/locations/juice?latitude=30&longitude=30&slug_name=rt" for 127.0.0.1 at 2021-07-22 06:34:16 +0200
+Processing by LocationsController#update as */*
+  Parameters: {"latitude"=>"30", "longitude"=>"30", "slug_name"=>"rt", "id"=>"juice"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "juice"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "juice"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:78:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:80:in `update'
+  [1m[36mLocation Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? AND "locations"."id" != ? LIMIT ?[0m  [["slug_name", "hdjzdjzj"], ["id", 57], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:80:in `update'
+  [1m[36mLocation Update (0.7ms)[0m  [1m[33mUPDATE "locations" SET "updated_at" = ?, "slug" = ? WHERE "locations"."id" = ?[0m  [["updated_at", "2021-07-22 04:34:16.547919"], ["slug", "rt"], ["id", 57]]
+  ↳ app/controllers/locations_controller.rb:80:in `update'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:80:in `update'
+Completed 200 OK in 41ms (Views: 0.4ms | ActiveRecord: 4.8ms | Allocations: 10483)
+
+
+Started PATCH "/locations/juice?latitude=30&longitude=30&slug_name=rt" for 127.0.0.1 at 2021-07-22 06:34:53 +0200
+Processing by LocationsController#update as */*
+  Parameters: {"latitude"=>"30", "longitude"=>"30", "slug_name"=>"rt", "id"=>"juice"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "juice"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+Completed 200 OK in 27ms (Views: 0.5ms | ActiveRecord: 1.2ms | Allocations: 6346)
+
+
+Started GET "/locations/rt" for 127.0.0.1 at 2021-07-22 06:35:14 +0200
+Processing by LocationsController#show as */*
+  Parameters: {"id"=>"rt"}
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:17:in `show'
+  [1m[36mLocation Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "rt"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:17:in `show'
+  [1m[36mLocation Load (0.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "rt"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:18:in `show'
+Completed 200 OK in 20ms (Views: 0.4ms | ActiveRecord: 2.1ms | Allocations: 4719)
+
+
+Started PATCH "/locations/rt?latitude=78&longitude=85&slug_name=minirt" for 127.0.0.1 at 2021-07-22 06:42:43 +0200
+  
+SyntaxError (/Users/najimasahloumi/Desktop/AppTweak/apirails/app/controllers/locations_controller.rb:91: syntax error, unexpected `else', expecting `end'
+			else
+			^~~~
+/Users/najimasahloumi/Desktop/AppTweak/apirails/app/controllers/locations_controller.rb:110: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/locations_controller.rb:91: syntax error, unexpected `else', expecting `end'
+app/controllers/locations_controller.rb:110: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/locations_controller.rb:91: syntax error, unexpected `else', expecting `end'
+app/controllers/locations_controller.rb:110: syntax error, unexpected end-of-input, expecting `end'
+Started PATCH "/locations/rt?latitude=78&longitude=85&slug_name=minirt" for 127.0.0.1 at 2021-07-22 06:42:59 +0200
+Processing by LocationsController#update as */*
+  Parameters: {"latitude"=>"78", "longitude"=>"85", "slug_name"=>"minirt", "id"=>"rt"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "rt"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Load (1.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "rt"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:78:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:82:in `update'
+  [1m[36mLocation Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? AND "locations"."id" != ? LIMIT ?[0m  [["slug_name", "minirt"], ["id", 57], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:82:in `update'
+  [1m[36mLocation Update (1.0ms)[0m  [1m[33mUPDATE "locations" SET "latitude" = ?, "longitude" = ?, "slug_name" = ?, "updated_at" = ?, "slug" = ? WHERE "locations"."id" = ?[0m  [["latitude", 78.0], ["longitude", 85.0], ["slug_name", "minirt"], ["updated_at", "2021-07-22 04:42:59.572876"], ["slug", "minirt"], ["id", 57]]
+  ↳ app/controllers/locations_controller.rb:82:in `update'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:82:in `update'
+Completed 200 OK in 46ms (Views: 0.1ms | ActiveRecord: 5.1ms | Allocations: 9963)
+
+
+Started PATCH "/locations/rt?latitude=78&longitude=85&slug_name=gh" for 127.0.0.1 at 2021-07-22 06:44:07 +0200
+Processing by LocationsController#update as */*
+  Parameters: {"latitude"=>"78", "longitude"=>"85", "slug_name"=>"gh", "id"=>"rt"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "rt"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 4041)
+
+
+Started PATCH "/locations/minirt?latitude=78&longitude=85&slug_name=gh" for 127.0.0.1 at 2021-07-22 06:44:30 +0200
+Processing by LocationsController#update as */*
+  Parameters: {"latitude"=>"78", "longitude"=>"85", "slug_name"=>"gh", "id"=>"minirt"}
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Load (0.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:78:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:82:in `update'
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? AND "locations"."id" != ? LIMIT ?[0m  [["slug_name", "gh"], ["id", 57], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:82:in `update'
+  [1m[36mLocation Update (2.7ms)[0m  [1m[33mUPDATE "locations" SET "slug_name" = ?, "updated_at" = ?, "slug" = ? WHERE "locations"."id" = ?[0m  [["slug_name", "gh"], ["updated_at", "2021-07-22 04:44:30.991899"], ["slug", "gh"], ["id", 57]]
+  ↳ app/controllers/locations_controller.rb:82:in `update'
+  [1m[36mTRANSACTION (10.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:82:in `update'
+Completed 200 OK in 44ms (Views: 0.1ms | ActiveRecord: 15.5ms | Allocations: 7364)
+
+
+Started PATCH "/locations/gh?latitude=78&longitude=85&slug_name=minirt" for 127.0.0.1 at 2021-07-22 06:45:24 +0200
+Processing by LocationsController#update as */*
+  Parameters: {"latitude"=>"78", "longitude"=>"85", "slug_name"=>"minirt", "id"=>"gh"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "gh"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "gh"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:78:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:82:in `update'
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? AND "locations"."id" != ? LIMIT ?[0m  [["slug_name", "minirt"], ["id", 57], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:82:in `update'
+  [1m[36mLocation Update (0.4ms)[0m  [1m[33mUPDATE "locations" SET "slug_name" = ?, "updated_at" = ?, "slug" = ? WHERE "locations"."id" = ?[0m  [["slug_name", "minirt"], ["updated_at", "2021-07-22 04:45:24.177933"], ["slug", "minirt"], ["id", 57]]
+  ↳ app/controllers/locations_controller.rb:82:in `update'
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:82:in `update'
+Completed 200 OK in 38ms (Views: 0.2ms | ActiveRecord: 6.9ms | Allocations: 12901)
+
+

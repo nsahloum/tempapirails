@@ -76,13 +76,19 @@ class LocationsController < ApplicationController
     def update
 		if Location.where(id: params[:id]).exists? || Location.where(slug: params[:id]).exists?
 			@location = Location.friendly.find(params[:id])
-			if params[:latitude].present? && params[:longitude].present? && params[:slug_name].present?
+			old_slug = @location.slug_name
+			if validate_coord(params[:latitude], params[:longitude]) && validate_slug(params[:slug_name])
+				new_slug = params[:slug_name]
 				@location.update(
 					latitude: params[:latitude],
 					longitude: params[:longitude],
 					slug_name: params[:slug_name]
 				)
-				render json: @location
+				if old_slug == new_slug
+					render json: @location
+				else
+					render json: "INFO:2 : You just changed the slug_name, you can access this location with the new slug_name : #{new_slug}"
+				end
 			else
 				render json: "ERROR:2 : You must specify a valid longitude, latitude and a slug_name"
 			end
