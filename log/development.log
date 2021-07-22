@@ -24595,3 +24595,189 @@ Processing by LocationsController#update as */*
 Completed 200 OK in 38ms (Views: 0.2ms | ActiveRecord: 6.9ms | Allocations: 12901)
 
 
+Started PATCH "/locations/minirt" for 127.0.0.1 at 2021-07-22 06:57:24 +0200
+Processing by LocationsController#update as */*
+  Parameters: {"id"=>"minirt"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:77:in `update'
+  [1m[36mLocation Load (1.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:78:in `update'
+Completed 200 OK in 22ms (Views: 0.1ms | ActiveRecord: 2.4ms | Allocations: 7069)
+
+
+Started GET "/locations/minirt" for 127.0.0.1 at 2021-07-22 06:57:30 +0200
+Processing by LocationsController#show as */*
+  Parameters: {"id"=>"minirt"}
+  [1m[36mLocation Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:17:in `show'
+  [1m[36mLocation Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:17:in `show'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:18:in `show'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 1824)
+
+
+Started GET "/minirt" for 127.0.0.1 at 2021-07-22 06:57:39 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"location_id"=>"minirt"}
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:17:in `show_location_temp'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:18:in `show_location_temp'
+  [1m[36mForecastedTemperature Load (4.5ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ?[0m  [["location_id", 57]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:42:in `!='
+Completed 200 OK in 33ms (Views: 0.4ms | ActiveRecord: 6.0ms | Allocations: 6837)
+
+
+Started GET "/locations/minirt" for 127.0.0.1 at 2021-07-22 06:58:18 +0200
+Processing by LocationsController#show as */*
+  Parameters: {"id"=>"minirt"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/locations_controller.rb:17:in `show'
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:17:in `show'
+  [1m[36mLocation Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:17:in `show'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:18:in `show'
+Completed 200 OK in 25ms (Views: 0.3ms | ActiveRecord: 4.4ms | Allocations: 7760)
+
+
+Started DELETE "/locations/minirt" for 127.0.0.1 at 2021-07-22 06:59:48 +0200
+Processing by LocationsController#destroy as */*
+  Parameters: {"id"=>"minirt"}
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:102:in `destroy'
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:102:in `destroy'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:104:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:105:in `destroy'
+  [1m[36mForecastedTemperature Load (0.2ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ?[0m  [["location_id", 57]]
+  ↳ app/controllers/locations_controller.rb:105:in `destroy'
+  [1m[36mForecastedTemperature Destroy (0.9ms)[0m  [1m[31mDELETE FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."id" = ?[0m  [["id", 194]]
+  ↳ app/controllers/locations_controller.rb:105:in `destroy'
+  [1m[36mForecastedTemperature Destroy (0.4ms)[0m  [1m[31mDELETE FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."id" = ?[0m  [["id", 195]]
+  ↳ app/controllers/locations_controller.rb:105:in `destroy'
+  [1m[36mForecastedTemperature Destroy (0.1ms)[0m  [1m[31mDELETE FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."id" = ?[0m  [["id", 196]]
+  ↳ app/controllers/locations_controller.rb:105:in `destroy'
+  [1m[36mForecastedTemperature Destroy (0.1ms)[0m  [1m[31mDELETE FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."id" = ?[0m  [["id", 197]]
+  ↳ app/controllers/locations_controller.rb:105:in `destroy'
+  [1m[36mLocation Destroy (0.2ms)[0m  [1m[31mDELETE FROM "locations" WHERE "locations"."id" = ?[0m  [["id", 57]]
+  ↳ app/controllers/locations_controller.rb:105:in `destroy'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:105:in `destroy'
+  [1m[36mLocation Load (2.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:106:in `destroy'
+Completed 200 OK in 79ms (Views: 15.4ms | ActiveRecord: 7.9ms | Allocations: 18235)
+
+
+Started POST "/locations?slug_name=minirt&latitude=78.0&longitude=85.0" for 127.0.0.1 at 2021-07-22 07:00:58 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"slug_name"=>"minirt", "latitude"=>"78.0", "longitude"=>"85.0"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:57:in `create'
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:57:in `create'
+  [1m[36mLocation Create (1.4ms)[0m  [1m[32mINSERT INTO "locations" ("latitude", "longitude", "slug_name", "created_at", "updated_at", "slug") VALUES (?, ?, ?, ?, ?, ?)[0m  [["latitude", 78.0], ["longitude", 85.0], ["slug_name", "minirt"], ["created_at", "2021-07-22 05:00:58.663154"], ["updated_at", "2021-07-22 05:00:58.663154"], ["slug", "minirt"]]
+  ↳ app/controllers/locations_controller.rb:57:in `create'
+  [1m[36mTRANSACTION (14.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/locations_controller.rb:57:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mLocation Load (0.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 62], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 62], ["date_forecasted", "2021-07-22"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (0.4ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-22"], ["min_forecasted", 1], ["max_forecasted", 2], ["created_at", "2021-07-22 05:01:07.140865"], ["updated_at", "2021-07-22 05:01:07.140865"], ["location_id", 62]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 62], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 62], ["date_forecasted", "2021-07-23"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (0.5ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-23"], ["min_forecasted", 0], ["max_forecasted", 1], ["created_at", "2021-07-22 05:01:07.152051"], ["updated_at", "2021-07-22 05:01:07.152051"], ["location_id", 62]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 62], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 62], ["date_forecasted", "2021-07-24"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (0.6ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-24"], ["min_forecasted", -1], ["max_forecasted", 0], ["created_at", "2021-07-22 05:01:07.162431"], ["updated_at", "2021-07-22 05:01:07.162431"], ["location_id", 62]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 62], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 62], ["date_forecasted", "2021-07-25"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (0.4ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-25"], ["min_forecasted", -1], ["max_forecasted", 0], ["created_at", "2021-07-22 05:01:07.176297"], ["updated_at", "2021-07-22 05:01:07.176297"], ["location_id", 62]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Load (0.4ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ?[0m  [["location_id", 62]]
+  ↳ app/controllers/locations_controller.rb:64:in `create'
+Completed 200 OK in 8529ms (Views: 0.5ms | ActiveRecord: 27.0ms | Allocations: 23622)
+
+
+Started POST "/minirt?start_date=2021-07-19&end_date=2021-07-20" for 127.0.0.1 at 2021-07-22 07:03:34 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/minirt"):
+  
+Started GET "/minirt?start_date=2021-07-19&end_date=2021-07-20" for 127.0.0.1 at 2021-07-22 07:03:39 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"start_date"=>"2021-07-19", "end_date"=>"2021-07-20", "location_id"=>"minirt"}
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:17:in `show_location_temp'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:18:in `show_location_temp'
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1483)
+
+
+Started GET "/minirt?start_date=2021-07-19&end_date=2021-07-22" for 127.0.0.1 at 2021-07-22 07:03:49 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"start_date"=>"2021-07-19", "end_date"=>"2021-07-22", "location_id"=>"minirt"}
+  [1m[36mLocation Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:17:in `show_location_temp'
+  [1m[36mLocation Load (1.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:18:in `show_location_temp'
+  [1m[36mForecastedTemperature Load (0.3ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" BETWEEN ? AND ?[0m  [["location_id", 62], ["date_forecasted", "2021-07-19"], ["date_forecasted", "2021-07-22"]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:42:in `!='
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 2.5ms | Allocations: 2081)
+
+
+Started GET "/minirt?start_date=2021-07-19&end_date=2021-07-24" for 127.0.0.1 at 2021-07-22 07:03:55 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"start_date"=>"2021-07-19", "end_date"=>"2021-07-24", "location_id"=>"minirt"}
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:17:in `show_location_temp'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:18:in `show_location_temp'
+  [1m[36mForecastedTemperature Load (1.0ms)[0m  [1m[34mSELECT "forecasted_temperatures".* FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" BETWEEN ? AND ?[0m  [["location_id", 62], ["date_forecasted", "2021-07-19"], ["date_forecasted", "2021-07-24"]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:42:in `!='
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 2138)
+
+
+Started GET "/minirt?start_date=2021-07-25&end_date=2021-07-24" for 127.0.0.1 at 2021-07-22 07:04:01 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"start_date"=>"2021-07-25", "end_date"=>"2021-07-24", "location_id"=>"minirt"}
+  [1m[36mLocation Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:17:in `show_location_temp'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:18:in `show_location_temp'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 1156)
+
+
