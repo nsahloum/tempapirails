@@ -41,7 +41,7 @@ class ApplicationController < ActionController::API
 			all_days_temp << elem["temp2m"] #collecting all the forecasted temperatures in an array
 		end		
 		timezone = Timezone.lookup(location.latitude, location.longitude).utc_offset / 3600 #collecting the timezone of the location from the API GeoNames (see the initialize timezone.rb)
-		@start = @start + timezone + @frequency_hours #calculating the real hour for forecasted temperature
+		@start = @start + timezone + @frequency_hours #calculating the real hour for forecasted temperature for the location
 		days = {}
 		i = 1
 		a = 0
