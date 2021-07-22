@@ -24781,3 +24781,183 @@ Processing by ForecastedTemperaturesController#show_location_temp as */*
 Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 1156)
 
 
+Started GET "/minirt?start_date=2021-07-25&end_date=2021-07-20" for 127.0.0.1 at 2021-07-22 07:12:56 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"start_date"=>"2021-07-25", "end_date"=>"2021-07-20", "location_id"=>"minirt"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/forecasted_temperatures_controller.rb:17:in `show_location_temp'
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:17:in `show_location_temp'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:18:in `show_location_temp'
+Completed 200 OK in 22ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 6653)
+
+
+Started GET "/minirt?start_date=2021-07-19&end_date=2021-07-20" for 127.0.0.1 at 2021-07-22 07:13:02 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"start_date"=>"2021-07-19", "end_date"=>"2021-07-20", "location_id"=>"minirt"}
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:17:in `show_location_temp'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:18:in `show_location_temp'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 1234)
+
+
+Started POST "/locations?latitude=40&longitude=78&slug_name=minirt" for 127.0.0.1 at 2021-07-22 07:13:50 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"latitude"=>"40", "longitude"=>"78", "slug_name"=>"minirt"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/locations_controller.rb:57:in `create'
+  [1m[36mLocation Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug_name" = ? LIMIT ?[0m  [["slug_name", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:57:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/locations_controller.rb:57:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" IS NULL AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["date_forecasted", "2021-07-22"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" IS NULL AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["date_forecasted", "2021-07-23"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" IS NULL AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["date_forecasted", "2021-07-24"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" IS NULL AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["date_forecasted", "2021-07-25"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+Completed 200 OK in 1725ms (Views: 0.1ms | ActiveRecord: 2.5ms | Allocations: 16166)
+
+
+Started POST "/locations?latitude=aba&longitude=78&slug_name=minirt" for 127.0.0.1 at 2021-07-22 07:14:07 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"latitude"=>"aba", "longitude"=>"78", "slug_name"=>"minirt"}
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 101)
+
+
+Started POST "/locations?latitude=aba&longitude=78&slug_name=yoli" for 127.0.0.1 at 2021-07-22 07:14:17 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"latitude"=>"aba", "longitude"=>"78", "slug_name"=>"yoli"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 84)
+
+
+Started POST "/locations?latitude=78&longitude=hj&slug_name=yoli" for 127.0.0.1 at 2021-07-22 07:14:36 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"latitude"=>"78", "longitude"=>"hj", "slug_name"=>"yoli"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 86)
+
+
+Started POST "/locations?latitude=78&longitude=78&slug_name=yo%20li" for 127.0.0.1 at 2021-07-22 07:14:52 +0200
+Processing by LocationsController#create as */*
+  Parameters: {"latitude"=>"78", "longitude"=>"78", "slug_name"=>"yo li"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 87)
+
+
+Started POST "/aaaajk" for 127.0.0.1 at 2021-07-22 07:15:34 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/aaaajk"):
+  
+Started GET "/aaaajk" for 127.0.0.1 at 2021-07-22 07:15:38 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"location_id"=>"aaaajk"}
+  [1m[36mLocation Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "aaaajk"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:17:in `show_location_temp'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 561)
+
+
+Started GET "/aaaajk?start_date=2021-07-22" for 127.0.0.1 at 2021-07-22 07:16:06 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"start_date"=>"2021-07-22", "location_id"=>"aaaajk"}
+  [1m[36mLocation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "aaaajk"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:17:in `show_location_temp'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 553)
+
+
+Started GET "/aaaajk?start_date=bldz" for 127.0.0.1 at 2021-07-22 07:16:12 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"start_date"=>"bldz", "location_id"=>"aaaajk"}
+  [1m[36mLocation Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "aaaajk"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:17:in `show_location_temp'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 553)
+
+
+Started GET "/minirt?start_date=bldz" for 127.0.0.1 at 2021-07-22 07:17:00 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"start_date"=>"bldz", "location_id"=>"minirt"}
+  [1m[36mLocation Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:17:in `show_location_temp'
+  [1m[36mLocation Load (0.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:18:in `show_location_temp'
+Completed 200 OK in 11ms (Views: 1.0ms | ActiveRecord: 1.9ms | Allocations: 1167)
+
+
+Started GET "/minirt?start_date=2021-07-22&end_date=2021-07-21" for 127.0.0.1 at 2021-07-22 07:17:43 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"start_date"=>"2021-07-22", "end_date"=>"2021-07-21", "location_id"=>"minirt"}
+  [1m[36mLocation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:17:in `show_location_temp'
+  [1m[36mLocation Load (1.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "minirt"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:18:in `show_location_temp'
+Completed 200 OK in 14ms (Views: 0.4ms | ActiveRecord: 1.9ms | Allocations: 1155)
+
+
+Started GET "/synchronize?location=brussels" for 127.0.0.1 at 2021-07-22 07:18:17 +0200
+Processing by ForecastedTemperaturesController#show_location_temp as */*
+  Parameters: {"location"=>"brussels", "location_id"=>"synchronize"}
+  [1m[36mLocation Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "synchronize"], ["LIMIT", 1]]
+  ↳ app/controllers/forecasted_temperatures_controller.rb:17:in `show_location_temp'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 555)
+
+
+Started POST "/synchronize?location=brussels" for 127.0.0.1 at 2021-07-22 07:18:24 +0200
+Processing by ApplicationController#get_data as */*
+  Parameters: {"location"=>"brussels"}
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."slug" = ? LIMIT ?[0m  [["slug", "brussels"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:66:in `get_data'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mLocation Load (1.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 6], ["date_forecasted", "2021-07-22"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 6], ["date_forecasted", "2021-07-23"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 6], ["date_forecasted", "2021-07-24"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "forecasted_temperatures" WHERE "forecasted_temperatures"."location_id" = ? AND "forecasted_temperatures"."date_forecasted" = ? LIMIT ?[0m  [["location_id", 6], ["date_forecasted", "2021-07-25"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mForecastedTemperature Create (0.6ms)[0m  [1m[32mINSERT INTO "forecasted_temperatures" ("date_forecasted", "min_forecasted", "max_forecasted", "created_at", "updated_at", "location_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date_forecasted", "2021-07-25"], ["min_forecasted", 16], ["max_forecasted", 16], ["created_at", "2021-07-22 05:18:25.795729"], ["updated_at", "2021-07-22 05:18:25.795729"], ["location_id", 6]]
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+  [1m[36mTRANSACTION (9.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:25:in `block in create_temperatures'
+Completed 200 OK in 1550ms (Views: 0.2ms | ActiveRecord: 14.6ms | Allocations: 14502)
+
+
