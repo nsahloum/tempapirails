@@ -50,7 +50,8 @@ or domain_name/locations/brussels?longitude=4.352&latitude=50.85&slug_name=bruss
 example : domain_name/locations/brussels
 
 ## Filter forecasted temperatures by dates:
-(data listed: date, max forecasted, min forecasted)
+(data listed: date, max forecasted, min forecasted) <br>
+Note that the dates specified are the real dates for each location (in the timezone of the location)
 ### 1. Between two dates
 > GET request on: domain_name/location?start_date=""&end_date=""<br>
 
