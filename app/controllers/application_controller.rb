@@ -21,8 +21,10 @@ class ApplicationController < ActionController::API
 	def create_temperatures(days, location, date)
 		i = 1
 		@number_days.times do
-			ForecastedTemperature.create(date_forecasted: date, min_forecasted: days[i].min,
-			max_forecasted: days[i].max, location_id: location.id)
+			if days[i].any? #check if there is temperature for this day (sometimes no temperatures for the init day)
+				ForecastedTemperature.create(date_forecasted: date, min_forecasted: days[i].min,
+				max_forecasted: days[i].max, location_id: location.id)
+			end
 			date = date + 1
 			i = i + 1
 		end
