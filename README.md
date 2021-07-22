@@ -119,7 +119,11 @@ ERROR:5 Explanation:
 ERROR:6 Explanation
 - the user must specify a start date that is before the end date
 
-> INFO: Synchronization successfully done
+> INFO:1: Synchronization successfully done
 
-Explanation : when the synchronization of one location or all locations is done
+INFO:1 Explanation : when the synchronization of one location or all locations is done
+
+> INFO:2 : You just changed the slug_name, you can access this location with the new slug_name
+
+INFO:2 Explanation : when updating a location slug_name, the location is not accessible anymore by this slug_name
 
