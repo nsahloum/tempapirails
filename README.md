@@ -2,7 +2,7 @@
 
 > **Environment:**<br>
 > Ruby 3.0.2 <br>
-> Rails 6.1.4
+> Rails 6.1.4 <br>
 > url : https://forecasted-temperature.herokuapp.com/
 
 ## CRUD operations on locations<br>
